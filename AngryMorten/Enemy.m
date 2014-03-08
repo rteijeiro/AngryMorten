@@ -10,11 +10,9 @@
 
 @implementation Enemy
 
--(id)initWithImageNamed:(NSString *)name {
-  if (self = [super init]) {
-    [self addChild:[SKSpriteNode spriteNodeWithImageNamed:name]];
-  }
-  return self;
++(id)initWithImageNamed:(NSString *)name {
+  Enemy *enemy = [super spriteNodeWithImageNamed:name];
+  return enemy;
 }
 
 @end

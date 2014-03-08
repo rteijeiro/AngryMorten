@@ -10,6 +10,6 @@
 
 @interface Enemy : SKSpriteNode
 
--(id)initWithImageNamed:(NSString *)name;
++(id)initWithImageNamed:(NSString *)name;
 
 @end
