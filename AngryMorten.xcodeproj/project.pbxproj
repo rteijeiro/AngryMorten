@@ -57,6 +57,7 @@
 		2B98742018CB8B13004C6B6B /* start-morten@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98741B18CB8B13004C6B6B /* start-morten@2x.png */; };
 		2B98742118CB8B13004C6B6B /* start-spit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98741C18CB8B13004C6B6B /* start-spit@2x.png */; };
 		2B98742218CB8B13004C6B6B /* start-title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98741D18CB8B13004C6B6B /* start-title@2x.png */; };
+		2B98742518CB8E4C004C6B6B /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98742418CB8E4C004C6B6B /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		2B98741B18CB8B13004C6B6B /* start-morten@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-morten@2x.png"; sourceTree = "<group>"; };
 		2B98741C18CB8B13004C6B6B /* start-spit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-spit@2x.png"; sourceTree = "<group>"; };
 		2B98741D18CB8B13004C6B6B /* start-title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-title@2x.png"; sourceTree = "<group>"; };
+		2B98742318CB8E4C004C6B6B /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2B98742418CB8E4C004C6B6B /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				2B9873BB18CB6A51004C6B6B /* ViewController.m */,
 				2B9873BD18CB6A51004C6B6B /* GameScene.h */,
 				2B9873BE18CB6A51004C6B6B /* GameScene.m */,
+				2B98742318CB8E4C004C6B6B /* Player.h */,
+				2B98742418CB8E4C004C6B6B /* Player.m */,
 				2B9873C218CB6A51004C6B6B /* Images.xcassets */,
 				2B9873A918CB6A51004C6B6B /* Supporting Files */,
 			);
@@ -417,6 +422,7 @@
 				2B9873BC18CB6A51004C6B6B /* ViewController.m in Sources */,
 				2B9873B318CB6A51004C6B6B /* AppDelegate.m in Sources */,
 				2B9873AF18CB6A51004C6B6B /* main.m in Sources */,
+				2B98742518CB8E4C004C6B6B /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

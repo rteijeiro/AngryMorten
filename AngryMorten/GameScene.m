@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "Player.h"
 
 @implementation GameScene
 
@@ -20,6 +21,13 @@
 
 -(void)startGame {
   [self loadBackground];
+  [self loadPlayer];
+}
+
+-(void)loadPlayer {
+  Player *player = [Player new];
+  player.position = CGPointMake(self.size.width / 2, player.size.height / 2);
+  [self addChild:player];
 }
 
 -(void)loadBackground {
