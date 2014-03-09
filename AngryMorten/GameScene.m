@@ -37,6 +37,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   Player *player = [[Player alloc] initWithImageNamed:@"player1"];
   player.position = CGPointMake(self.size.width / 2, player.size.height / 2);
   player.spitAnimation = [self createSpitAnimation];
+  player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
+  player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
   
   [self addChild:player];
 }

@@ -17,8 +17,12 @@
   return self;
 }
 
--(void)reset {
-  [self runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"player1"]]];
+-(void)shoot {
+  self.texture = _shootImage;
+}
+
+-(void)playerInit {
+  self.texture = _initialImage;
 }
 
 -(void)spit {
@@ -27,6 +31,7 @@
 
 -(void)spitStop {
   [self removeActionForKey:@"Spit"];
+  [self shoot];
 }
 
 -(void)moveTo:(CGPoint)position screenWidth:(float)screenWidth {

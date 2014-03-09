@@ -11,8 +11,12 @@
 @interface Player : SKSpriteNode
 
 @property SKAction *spitAnimation;
+@property SKTexture *shootImage;
+@property SKTexture *initialImage;
 
 -(void)spit;
+-(void)shoot;
+-(void)playerInit;
 -(void)spitStop;
 -(void)moveTo:(CGPoint)position screenWidth:(float)screenWidth;
 
