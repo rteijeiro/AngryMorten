@@ -56,6 +56,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   _aim.fontColor = [SKColor whiteColor];
   _aim.text = @"▶︎";
   _aim.position = CGPointMake(0.0f, self.size.height / 3);
+  _aim.zPosition = 100.0f;
   
   [self addChild:_aim];
   
@@ -66,6 +67,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   _time.fontColor = [SKColor whiteColor];
   _time.text = @"Time: 20:00:00";
   _time.position = CGPointMake(_time.frame.size.width / 1.5, self.size.height - _time.frame.size.height * 2);
+  _time.zPosition = 100.0f;
   
   [self addChild:_time];
   
@@ -76,6 +78,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   _score.fontColor = [SKColor whiteColor];
   _score.text = @"Score: 666";
   _score.position = CGPointMake(self.size.width - _score.frame.size.width / 1.5, self.size.height - _score.frame.size.height * 2);
+  _score.zPosition = 100.0f;
   
   [self addChild:_score];
 }
