@@ -19,9 +19,12 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
   float _spawnTime;
+  
   SKLabelNode *_aim;
   SKLabelNode *_time;
   SKLabelNode *_score;
+  
+  Player *_player;
 }
 
 -(id)initWithSize:(CGSize)size {    
@@ -101,8 +104,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   if ([node.name isEqualToString:@"Player"]) {
     // Move player.
-    Player *player = (Player *) node;
-    [player moveTo:location screenWidth:self.size.width];
+    [_player moveTo:location screenWidth:self.size.width];
   }
 }
 
@@ -114,8 +116,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   if ([node.name isEqualToString:@"Player"]) {
     // Start spitting.
-    Player *player = (Player *) node;
-    [player spit];
+    [_player spit];
     
     // Move Aim.
     [self moveAim];
@@ -129,8 +130,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   if ([node.name isEqualToString:@"Player"]) {
     // Stop spitting.
-    Player *player = (Player *) node;
-    [player spitStop];
+    [_player spitStop];
     
     // Stop Aim.
     [self stopAim];
@@ -144,8 +144,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   if ([node.name isEqualToString:@"Player"]) {
     // Stop spitting.
-    Player *player = (Player *) node;
-    [player spitStop];
+    [_player spitStop];
     
     // Stop Aim.
     [self stopAim];
@@ -176,13 +175,13 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 // ***********************
 
 -(void)loadPlayer {
-  Player *player = [[Player alloc] initWithImageNamed:@"player1"];
-  player.position = CGPointMake(self.size.width / 2, player.size.height / 2);
-  player.spitAnimation = [self createSpitAnimation];
-  player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
-  player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
+  _player = [[Player alloc] initWithImageNamed:@"player1"];
+  _player.position = CGPointMake(self.size.width / 2, _player.size.height / 2);
+  _player.spitAnimation = [self createSpitAnimation];
+  _player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
+  _player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
   
-  [self addChild:player];
+  [self addChild:_player];
 }
 
 -(SKAction *)createSpitAnimation {
