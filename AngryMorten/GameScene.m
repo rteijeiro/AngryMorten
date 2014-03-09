@@ -16,7 +16,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
 }
 
-@implementation GameScene
+@implementation GameScene {
+  SKLabelNode *_aim;
+  SKLabelNode *_time;
+  SKLabelNode *_score;
+}
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -28,6 +32,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)startGame {
   [self loadBackground];
+  [self loadGUI];
   [self loadPlayer];
   [self spawnCar];
   [self spawnBike];
@@ -80,6 +85,38 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
   bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
   [self addChild:bg];
+}
+
+-(void)loadGUI {
+  // Create Aim for targetting spits.
+  _aim = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+  _aim.name = @"Aim";
+  _aim.fontSize = 100.0f;
+  _aim.fontColor = [SKColor whiteColor];
+  _aim.text = @"▶︎";
+  _aim.position = CGPointMake(0.0f, self.size.height / 3);
+  
+  [self addChild:_aim];
+  
+  // Create label for Timer.
+  _time = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _time.name = @"Time";
+  _time.fontSize = 30.0f;
+  _time.fontColor = [SKColor whiteColor];
+  _time.text = @"Time: 20:00:00";
+  _time.position = CGPointMake(_time.frame.size.width / 1.5, self.size.height - _time.frame.size.height * 2);
+  
+  [self addChild:_time];
+  
+  // Create label for Score.
+  _score = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _score.name = @"Score";
+  _score.fontSize = 30.0f;
+  _score.fontColor = [SKColor whiteColor];
+  _score.text = @"Score: 666";
+  _score.position = CGPointMake(self.size.width - _score.frame.size.width / 1.5, self.size.height - _score.frame.size.height * 2);
+  
+  [self addChild:_score];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -31,6 +31,11 @@
 		2B98747118CBBE86004C6B6B /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98746F18CBBE86004C6B6B /* background@2x.png */; };
 		2B98747818CCFAE6004C6B6B /* start-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747618CCFAE6004C6B6B /* start-bg.png */; };
 		2B98747918CCFAE6004C6B6B /* start-bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747718CCFAE6004C6B6B /* start-bg@2x.jpg */; };
+		2B98748018CD0216004C6B6B /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747B18CD0216004C6B6B /* readme.txt */; };
+		2B98748118CD0216004C6B6B /* slkscr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747C18CD0216004C6B6B /* slkscr.ttf */; };
+		2B98748218CD0216004C6B6B /* slkscrb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747D18CD0216004C6B6B /* slkscrb.ttf */; };
+		2B98748318CD0216004C6B6B /* slkscre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747E18CD0216004C6B6B /* slkscre.ttf */; };
+		2B98748418CD0216004C6B6B /* slkscreb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747F18CD0216004C6B6B /* slkscreb.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,11 @@
 		2B98746F18CBBE86004C6B6B /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		2B98747618CCFAE6004C6B6B /* start-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg.png"; sourceTree = "<group>"; };
 		2B98747718CCFAE6004C6B6B /* start-bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "start-bg@2x.jpg"; sourceTree = "<group>"; };
+		2B98747B18CD0216004C6B6B /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		2B98747C18CD0216004C6B6B /* slkscr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscr.ttf; sourceTree = "<group>"; };
+		2B98747D18CD0216004C6B6B /* slkscrb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscrb.ttf; sourceTree = "<group>"; };
+		2B98747E18CD0216004C6B6B /* slkscre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscre.ttf; sourceTree = "<group>"; };
+		2B98747F18CD0216004C6B6B /* slkscreb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscreb.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 		2B98739418CB6A51004C6B6B = {
 			isa = PBXGroup;
 			children = (
+				2B98747A18CD0216004C6B6B /* Fonts */,
 				2B98746D18CBBE86004C6B6B /* Backgrounds */,
 				2B98746B18CBBDE2004C6B6B /* Art.atlas */,
 				2B9873A818CB6A51004C6B6B /* AngryMorten */,
@@ -198,6 +209,19 @@
 			path = AngryMorten/Backgrounds;
 			sourceTree = "<group>";
 		};
+		2B98747A18CD0216004C6B6B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2B98747B18CD0216004C6B6B /* readme.txt */,
+				2B98747C18CD0216004C6B6B /* slkscr.ttf */,
+				2B98747D18CD0216004C6B6B /* slkscrb.ttf */,
+				2B98747E18CD0216004C6B6B /* slkscre.ttf */,
+				2B98747F18CD0216004C6B6B /* slkscreb.ttf */,
+			);
+			name = Fonts;
+			path = AngryMorten/Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,13 +301,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B98748018CD0216004C6B6B /* readme.txt in Resources */,
+				2B98748118CD0216004C6B6B /* slkscr.ttf in Resources */,
+				2B98748318CD0216004C6B6B /* slkscre.ttf in Resources */,
 				2B98746C18CBBDE2004C6B6B /* Art.atlas in Resources */,
+				2B98748218CD0216004C6B6B /* slkscrb.ttf in Resources */,
 				2B98747018CBBE86004C6B6B /* background.png in Resources */,
 				2B98747918CCFAE6004C6B6B /* start-bg@2x.jpg in Resources */,
 				2B9873C318CB6A51004C6B6B /* Images.xcassets in Resources */,
 				2B98747818CCFAE6004C6B6B /* start-bg.png in Resources */,
 				2B98747118CBBE86004C6B6B /* background@2x.png in Resources */,
 				2B9873B918CB6A51004C6B6B /* Main_iPad.storyboard in Resources */,
+				2B98748418CD0216004C6B6B /* slkscreb.ttf in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2B9873AD18CB6A51004C6B6B /* InfoPlist.strings in Resources */,
 			);
