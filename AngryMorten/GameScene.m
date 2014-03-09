@@ -87,7 +87,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
-
+    Player *player = (Player *) node;
+    [player moveTo:location screenWidth:self.size.width];
   }
 }
 

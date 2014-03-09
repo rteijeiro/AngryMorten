@@ -14,5 +14,6 @@
 
 -(void)spit;
 -(void)spitStop;
+-(void)moveTo:(CGPoint)position screenWidth:(float)screenWidth;
 
 @end
