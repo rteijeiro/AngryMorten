@@ -10,9 +10,8 @@
 
 @implementation Enemy
 
-+(id)initWithImageNamed:(NSString *)name {
-  Enemy *enemy = [super spriteNodeWithImageNamed:name];
-  return enemy;
+-(id)initWithImageNamed:(NSString *)name {
+  return [super initWithImageNamed:name];
 }
 
 @end

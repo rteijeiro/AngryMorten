@@ -219,15 +219,13 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(void)spawnCar {
-  Enemy *car = [Enemy new];
-  car = [car initWithImageNamed:@"car"];
+  Enemy *car = [[Enemy alloc] initWithImageNamed:@"car"];
   car.position = [self randomVehiclePosition:car.size.height];
   [self addChild:car];
 }
 
 -(void)spawnBike {
-  Enemy *bike = [Enemy new];
-  bike = [bike initWithImageNamed:@"bike"];
+  Enemy *bike = [[Enemy alloc] initWithImageNamed:@"bike"];
   bike.position = [self randomVehiclePosition:bike.size.height];
   [self addChild:bike];
 }
