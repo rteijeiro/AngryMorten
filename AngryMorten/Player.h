@@ -10,4 +10,8 @@
 
 @interface Player : SKSpriteNode
 
+@property SKAction *spitAnimation;
+
+-(void)spit;
+
 @end

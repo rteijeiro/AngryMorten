@@ -13,7 +13,13 @@
 -(id)init {
   Player *player = [Player spriteNodeWithImageNamed:@"player1"];
   player.name = @"Player";
+  
   return player;
+}
+
+-(void)spit {
+  NSLog(@"Spiting");
+  [self runAction:_spitAnimation withKey:@"Spit"];
 }
 
 @end

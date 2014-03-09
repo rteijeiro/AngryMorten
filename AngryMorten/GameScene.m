@@ -36,7 +36,27 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 -(void)loadPlayer {
   Player *player = [Player new];
   player.position = CGPointMake(self.size.width / 2, player.size.height / 2);
+  player.spitAnimation = [self createSpitAnimation];
+  
   [self addChild:player];
+}
+
+-(SKAction *)createSpitAnimation {
+  // Spitting Animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:5];
+  
+  for (int i = 2; i <= 5; i++) {
+    NSString *textureName = [NSString stringWithFormat:@"player%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+    [textures addObject:texture];
+  }
+  
+  SKTexture *texture = [SKTexture textureWithImageNamed:@"player1"];
+  [textures addObject:texture];
+  
+  SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
+  
+  return animation;
 }
 
 -(void)spawnEnemy {
@@ -61,6 +81,49 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
   bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
   [self addChild:bg];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Verify that user touched the player and move it.
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"Player"]) {
+
+  }
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Verify the user touched the player and activate spit.
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"Player"]) {
+    Player *player = (Player *) node;
+    [player spit];
+  }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"Player"]) {
+
+  }
+}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"Player"]) {
+  
+  }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
