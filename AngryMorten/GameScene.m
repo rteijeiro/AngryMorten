@@ -209,11 +209,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   int randomInt = arc4random_uniform(2);
   switch (randomInt) {
     case 0:
-      [self spawnCar];
+      [self createEnemy:@"car"];
       break;
       
     case 1:
-      [self spawnBike];
+      [self createEnemy:@"bike"];
       break;
       
     default:
@@ -221,23 +221,40 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 }
 
--(void)spawnCar {
-  Enemy *car = [[Enemy alloc] initWithImageNamed:@"car"];
-  car.position = [self randomVehiclePosition:car.size];
-  [self addChild:car];
-  [car moveToX:self.size.width + car.size.width];
-}
-
--(void)spawnBike {
-  Enemy *bike = [[Enemy alloc] initWithImageNamed:@"bike"];
-  bike.position = [self randomVehiclePosition:bike.size];
-  [self addChild:bike];
-  [bike moveToX:self.size.width + bike.size.width];
+-(void)createEnemy:(NSString *)type {
+  Enemy *enemy = [[Enemy alloc] initWithImageNamed:type];
+  enemy.position = [self randomVehiclePosition:enemy.size];
+  [self addChild:enemy];
+  
+  // Check enemy direction to update move position and flip image if needed.
+  if (enemy.position.x < 0) { // Right direction.
+    [enemy moveToX:self.size.width + enemy.size.width];
+  }
+  else { // Left direction.
+    // Flip enemy image.
+    enemy.xScale = -1.0f;
+    [enemy moveToX:-enemy.size.width * 2];
+  }
 }
 
 -(CGPoint)randomVehiclePosition:(CGSize)vehicleSize {
+  float xPosition;
+  
+  // Random direction generation.
+  int randomDirection = arc4random_uniform(2);
+  
+  switch (randomDirection) {
+    case 0: // Right direction.
+      xPosition = -vehicleSize.width;
+      break;
+      
+    case 1: // Left direction.
+      xPosition = self.size.width + vehicleSize.width;
+      break;
+  }
+  
   // Calculate random position for vehicles.
-  CGPoint position = CGPointMake(-vehicleSize.width, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
+  CGPoint position = CGPointMake(xPosition, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
   return position;
 }
 
