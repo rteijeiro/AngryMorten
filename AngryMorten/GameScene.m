@@ -34,7 +34,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(void)loadPlayer {
-  Player *player = [Player new];
+  Player *player = [[Player alloc] initWithImageNamed:@"player1"];
   player.position = CGPointMake(self.size.width / 2, player.size.height / 2);
   player.spitAnimation = [self createSpitAnimation];
   
@@ -45,7 +45,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   // Spitting Animation.
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:5];
   
-  for (int i = 2; i <= 5; i++) {
+  for (int i = 2; i <= 4; i++) {
     NSString *textureName = [NSString stringWithFormat:@"player%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
     [textures addObject:texture];

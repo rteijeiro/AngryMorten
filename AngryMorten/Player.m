@@ -10,11 +10,11 @@
 
 @implementation Player
 
--(id)init {
-  Player *player = [Player spriteNodeWithImageNamed:@"player1"];
-  player.name = @"Player";
-  
-  return player;
+-(id)initWithImageNamed:(NSString *)name {
+  if (self = [super initWithImageNamed:name]) {
+    self.name = @"Player";
+  }
+  return self;
 }
 
 -(void)reset {
