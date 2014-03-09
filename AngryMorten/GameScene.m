@@ -51,9 +51,6 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     [textures addObject:texture];
   }
   
-  SKTexture *texture = [SKTexture textureWithImageNamed:@"player1"];
-  [textures addObject:texture];
-  
   SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
   
   return animation;
@@ -112,7 +109,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
-
+    Player *player = (Player *) node;
+    [player spitStop];
   }
 }
 
@@ -122,7 +120,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
-  
+    Player *player = (Player *) node;
+    [player spitStop];
   }
 }
 

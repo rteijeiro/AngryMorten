@@ -17,9 +17,17 @@
   return player;
 }
 
+-(void)reset {
+  [self runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"player1"]]];
+}
+
 -(void)spit {
-  NSLog(@"Spiting");
   [self runAction:_spitAnimation withKey:@"Spit"];
+}
+
+-(void)spitStop {
+  [self removeActionForKey:@"Spit"];
+  [self reset];
 }
 
 @end

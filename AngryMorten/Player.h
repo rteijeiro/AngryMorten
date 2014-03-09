@@ -13,5 +13,6 @@
 @property SKAction *spitAnimation;
 
 -(void)spit;
+-(void)spitStop;
 
 @end
