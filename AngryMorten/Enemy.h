@@ -10,4 +10,6 @@
 
 @interface Enemy : SKSpriteNode
 
+-(void)moveToX:(float)position;
+
 @end

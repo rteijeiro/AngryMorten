@@ -220,19 +220,21 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)spawnCar {
   Enemy *car = [[Enemy alloc] initWithImageNamed:@"car"];
-  car.position = [self randomVehiclePosition:car.size.height];
+  car.position = [self randomVehiclePosition:car.size];
   [self addChild:car];
+  [car moveToX:self.size.width + car.size.width];
 }
 
 -(void)spawnBike {
   Enemy *bike = [[Enemy alloc] initWithImageNamed:@"bike"];
-  bike.position = [self randomVehiclePosition:bike.size.height];
+  bike.position = [self randomVehiclePosition:bike.size];
   [self addChild:bike];
+  [bike moveToX:self.size.width + bike.size.width];
 }
 
--(CGPoint)randomVehiclePosition:(float)vehicleHeight {
+-(CGPoint)randomVehiclePosition:(CGSize)vehicleSize {
   // Calculate random position for vehicles.
-  CGPoint position = CGPointMake(self.size.width / 2, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleHeight / 2));
+  CGPoint position = CGPointMake(-vehicleSize.width, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
   return position;
 }
 
