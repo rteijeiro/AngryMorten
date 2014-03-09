@@ -29,6 +29,8 @@
 		2B98746C18CBBDE2004C6B6B /* Art.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B98746B18CBBDE2004C6B6B /* Art.atlas */; };
 		2B98747018CBBE86004C6B6B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98746E18CBBE86004C6B6B /* background.png */; };
 		2B98747118CBBE86004C6B6B /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98746F18CBBE86004C6B6B /* background@2x.png */; };
+		2B98747818CCFAE6004C6B6B /* start-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747618CCFAE6004C6B6B /* start-bg.png */; };
+		2B98747918CCFAE6004C6B6B /* start-bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B98747718CCFAE6004C6B6B /* start-bg@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		2B98746B18CBBDE2004C6B6B /* Art.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Art.atlas; path = AngryMorten/Art.atlas; sourceTree = "<group>"; };
 		2B98746E18CBBE86004C6B6B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2B98746F18CBBE86004C6B6B /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		2B98747618CCFAE6004C6B6B /* start-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg.png"; sourceTree = "<group>"; };
+		2B98747718CCFAE6004C6B6B /* start-bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "start-bg@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 			children = (
 				2B98746E18CBBE86004C6B6B /* background.png */,
 				2B98746F18CBBE86004C6B6B /* background@2x.png */,
+				2B98747618CCFAE6004C6B6B /* start-bg.png */,
+				2B98747718CCFAE6004C6B6B /* start-bg@2x.jpg */,
 			);
 			name = Backgrounds;
 			path = AngryMorten/Backgrounds;
@@ -273,7 +279,9 @@
 			files = (
 				2B98746C18CBBDE2004C6B6B /* Art.atlas in Resources */,
 				2B98747018CBBE86004C6B6B /* background.png in Resources */,
+				2B98747918CCFAE6004C6B6B /* start-bg@2x.jpg in Resources */,
 				2B9873C318CB6A51004C6B6B /* Images.xcassets in Resources */,
+				2B98747818CCFAE6004C6B6B /* start-bg.png in Resources */,
 				2B98747118CBBE86004C6B6B /* background@2x.png in Resources */,
 				2B9873B918CB6A51004C6B6B /* Main_iPad.storyboard in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
