@@ -10,8 +10,4 @@
 
 @implementation Enemy
 
--(id)initWithImageNamed:(NSString *)name {
-  return [super initWithImageNamed:name];
-}
-
 @end
