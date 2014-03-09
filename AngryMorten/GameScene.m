@@ -223,7 +223,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)createEnemy:(NSString *)type {
   Enemy *enemy = [[Enemy alloc] initWithImageNamed:type];
-  enemy.position = [self randomVehiclePosition:enemy.size];
+  enemy.position = [self randomEnemyPosition:enemy.size];
   [self addChild:enemy];
   
   // Check enemy direction to update move position and flip image if needed.
@@ -237,7 +237,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 }
 
--(CGPoint)randomVehiclePosition:(CGSize)vehicleSize {
+-(CGPoint)randomEnemyPosition:(CGSize)vehicleSize {
   float xPosition;
   
   // Random direction generation.
@@ -253,7 +253,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       break;
   }
   
-  // Calculate random position for vehicles.
+  // Calculate random position for enemies.
   CGPoint position = CGPointMake(xPosition, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
   return position;
 }
