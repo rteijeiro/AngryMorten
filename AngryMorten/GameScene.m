@@ -205,9 +205,22 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   spit.position = CGPointMake(_player.position.x, _player.size.height);
   [self addChild:spit];
   
+  // Spit appear animation.
+  SKAction *spitAppear = [SKAction scaleTo:1.5 duration:0.05];
+  
+  // Distance and spit speed calculations.
+  double distance = sqrt(pow((_aim.position.x), 2.0) + pow((_aim.position.y), 2.0));
+  float duration = distance * 0.0009;
+  
   // Move spit to aim position.
-  SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:1.0f];
-  [spit runAction:spitMove];
+  SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:duration];
+  
+  // Remove spit after moving.
+  SKAction *spitRemove = [SKAction removeFromParent];
+  
+  // Full animation sequence.
+  SKAction *sequence = [SKAction sequence:@[spitAppear, spitMove, spitRemove]];
+  [spit runAction:sequence];
 }
 
 // **********************
