@@ -129,11 +129,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
-    // Stop spitting.
-    [_player spitStop];
-    
-    // Stop Aim.
-    [self stopAim];
+    // Shoot spit.
+    [self shootSpit];
   }
 }
 
@@ -143,11 +140,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
-    // Stop spitting.
-    [_player spitStop];
-    
-    // Stop Aim.
-    [self stopAim];
+    // Shoot Spit;
+    [self shootSpit];
   }
 }
 
@@ -197,6 +191,23 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
   
   return animation;
+}
+
+-(void)shootSpit {
+  // Stop player spitting animation.
+  [_player spitStop];
+  
+  // Stop Aim.
+  [self stopAim];
+  
+  // Create spit in player position.
+  SKSpriteNode *spit = [[SKSpriteNode alloc] initWithImageNamed:@"spit"];
+  spit.position = CGPointMake(_player.position.x, _player.size.height);
+  [self addChild:spit];
+  
+  // Move spit to aim position.
+  SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:1.0f];
+  [spit runAction:spitMove];
 }
 
 // **********************
