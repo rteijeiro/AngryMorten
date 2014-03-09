@@ -119,6 +119,16 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   [self addChild:_score];
 }
 
+-(void)moveAim {
+  _aim.position = CGPointMake(0.0f, self.size.height / 3);
+  SKAction *animation = [SKAction moveToY:self.size.height - _aim.frame.size.height / 1.5 duration:1.0];
+  [_aim runAction:animation withKey:@"aimAnimation"];
+}
+
+-(void)stopAim {
+  [_aim removeActionForKey:@"aimAnimation"];
+}
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   // Verify that user touched the player and move it.
   UITouch *touch = [touches anyObject];
@@ -126,6 +136,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
+    // Move player.
     Player *player = (Player *) node;
     [player moveTo:location screenWidth:self.size.width];
   }
@@ -138,8 +149,12 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
+    // Start spitting.
     Player *player = (Player *) node;
     [player spit];
+    
+    // Move Aim.
+    [self moveAim];
   }
 }
 
@@ -149,8 +164,12 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
+    // Stop spitting.
     Player *player = (Player *) node;
     [player spitStop];
+    
+    // Stop Aim.
+    [self stopAim];
   }
 }
 
@@ -160,8 +179,12 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Player"]) {
+    // Stop spitting.
     Player *player = (Player *) node;
     [player spitStop];
+    
+    // Stop Aim.
+    [self stopAim];
   }
 }
 
