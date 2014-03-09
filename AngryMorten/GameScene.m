@@ -17,6 +17,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 @implementation GameScene {
+  NSTimeInterval _timeLastUpdate;
+  float _spawnTime;
   SKLabelNode *_aim;
   SKLabelNode *_time;
   SKLabelNode *_score;
@@ -34,8 +36,6 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   [self loadBackground];
   [self loadGUI];
   [self loadPlayer];
-  [self spawnCar];
-  [self spawnBike];
 }
 
 -(void)loadPlayer {
@@ -64,7 +64,19 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(void)spawnEnemy {
-
+  int randomInt = arc4random_uniform(2);
+  switch (randomInt) {
+    case 0:
+      [self spawnCar];
+      break;
+      
+    case 1:
+      [self spawnBike];
+      break;
+      
+    default:
+      break;
+  }
 }
 
 -(void)spawnCar {
@@ -189,7 +201,21 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    /* Called before each frame is rendered */
+  /* Called before each frame is rendered */
+  float elapsed;
+  if (_timeLastUpdate) {
+    elapsed = currentTime - _timeLastUpdate;
+  }
+  else {
+    elapsed = 0;
+  }
+  _timeLastUpdate = currentTime;
+  _spawnTime += elapsed;
+  
+  if (_spawnTime > 1.0f) {
+    [self spawnEnemy];
+    _spawnTime = 0.0f;
+  }
 }
 
 -(CGPoint)randomVehiclePosition:(float)vehicleHeight {
