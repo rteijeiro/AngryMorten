@@ -14,7 +14,7 @@
   SKAction *move = [SKAction moveToX:position + self.size.width duration:3.0];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
-  [self runAction:sequence];
+  [self runAction:sequence withKey:@"MoveToX"];
 }
 
 @end

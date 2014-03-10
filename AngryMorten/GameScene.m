@@ -203,6 +203,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   // Create spit in player position.
   SKSpriteNode *spit = [[SKSpriteNode alloc] initWithImageNamed:@"spit"];
   spit.position = CGPointMake(_player.position.x, _player.size.height);
+  spit.name = @"Spit";
   [self addChild:spit];
   
   // Spit appear animation.
@@ -215,12 +216,31 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   // Move spit to aim position.
   SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:duration];
   
-  // Remove spit after moving.
-  SKAction *spitRemove = [SKAction removeFromParent];
-  
   // Full animation sequence.
-  SKAction *sequence = [SKAction sequence:@[spitAppear, spitMove, spitRemove]];
-  [spit runAction:sequence];
+  SKAction *sequence = [SKAction sequence:@[spitAppear, spitMove]];
+  
+  [spit runAction:sequence completion:^{
+    // Check for spit collisions.
+    [self checkSpit];
+    
+    // Remove spit after moving.
+    [spit removeFromParent];
+  }];
+}
+
+-(void)checkSpit {
+  [self enumerateChildNodesWithName:@"Spit" usingBlock:^(SKNode *spit, BOOL *stop) {
+    [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
+      
+      // Reduce enemy frame to increase difficulty.
+      CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width / 4, enemy.frame.size.height / 4);
+      
+      // Check if spit collided with enemy reduced frame.
+      if (CGRectIntersectsRect(spit.frame, collisionRect)) {
+        [enemy removeActionForKey:@"MoveToX"];
+      }
+    }];
+  }];
 }
 
 // **********************
