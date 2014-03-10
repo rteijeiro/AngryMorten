@@ -238,7 +238,10 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       // Check if spit collided with enemy reduced frame.
       if (CGRectIntersectsRect(spit.frame, collisionRect)) {
         [enemy removeActionForKey:@"MoveToX"];
+        Enemy *e = (Enemy *)enemy;
+        e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
       }
+      
     }];
   }];
 }
@@ -267,6 +270,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 -(void)createEnemy:(NSString *)type {
   Enemy *enemy = [[Enemy alloc] initWithImageNamed:type];
   enemy.position = [self randomEnemyPosition:enemy.size];
+  enemy.name = type;
   [self addChild:enemy];
   
   // Check enemy direction to update move position and flip image if needed.
