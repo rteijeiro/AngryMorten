@@ -170,8 +170,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)loadPlayer {
   _player = [[Player alloc] initWithImageNamed:@"player1"];
-  _player.position = CGPointMake(self.size.width / 2, _player.size.height / 2);
-  _player.spitAnimation = [self createSpitAnimation];
+  _player.position = CGPointMake(self.size.width / 2.0f, _player.size.height / 2.0f);
   _player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
   _player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
   
@@ -188,7 +187,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     [textures addObject:texture];
   }
   
-  SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1];
+  SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1f];
   
   return animation;
 }
@@ -207,11 +206,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   [self addChild:spit];
   
   // Distance and spit speed calculations.
-  double distance = sqrt(pow((_aim.position.x), 2.0) + pow((_aim.position.y), 2.0));
-  float duration = distance * 0.0009;
+  double distance = sqrt(pow((_aim.position.x), 2.0f) + pow((_aim.position.y), 2.0f));
+  float duration = distance * 0.0009f;
   
   // Move spit to aim position.
-  SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:duration];
+  SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2.0f duration:duration];
   
   // Full animation sequence.
   SKAction *sequence = [SKAction sequence:@[spitMove]];
@@ -229,7 +228,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
       
     // Reduce enemy frame to increase difficulty.
-    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height / 4);
+    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height);
       
     // Check if spit collided with enemy reduced frame.
     if (CGRectIntersectsRect(spit.frame, collisionRect)) {

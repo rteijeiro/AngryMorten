@@ -11,7 +11,7 @@
 @implementation Enemy
 
 -(void)moveToX:(float)position {
-  SKAction *move = [SKAction moveToX:position + self.size.width duration:3.0];
+  SKAction *move = [SKAction moveToX:position + self.size.width duration:10.0];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
   [self runAction:sequence withKey:@"MoveToX"];
