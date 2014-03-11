@@ -206,9 +206,6 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   spit.name = @"Spit";
   [self addChild:spit];
   
-  // Spit appear animation.
-  SKAction *spitAppear = [SKAction scaleTo:1.5 duration:0.05];
-  
   // Distance and spit speed calculations.
   double distance = sqrt(pow((_aim.position.x), 2.0) + pow((_aim.position.y), 2.0));
   float duration = distance * 0.0009;
@@ -217,7 +214,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2 duration:duration];
   
   // Full animation sequence.
-  SKAction *sequence = [SKAction sequence:@[spitAppear, spitMove]];
+  SKAction *sequence = [SKAction sequence:@[spitMove]];
   
   [spit runAction:sequence completion:^{
     // Check for spit collisions.
@@ -233,7 +230,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
       
       // Reduce enemy frame to increase difficulty.
-      CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width / 4, enemy.frame.size.height / 4);
+      CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height / 4);
       
       // Check if spit collided with enemy reduced frame.
       if (CGRectIntersectsRect(spit.frame, collisionRect)) {
