@@ -13,6 +13,7 @@
 -(id)initWithImageNamed:(NSString *)name {
   if (self = [super initWithImageNamed:name]) {
     self.name = @"Player";
+    self.spitAnimation = [self createSpitAnimation];
   }
   return self;
 }
@@ -36,15 +37,31 @@
 
 -(void)moveTo:(CGPoint)position screenWidth:(float)screenWidth {
   // Verify that player fits into the screen bounds.
-  if (position.x < self.size.width / 2) {
-    position.x = self.size.width / 2;
+  if (position.x < self.size.width / 2.0f) {
+    position.x = self.size.width / 2.0f;
   }
-  if (position.x > screenWidth - self.size.width / 2) {
-    position.x = screenWidth - self.size.width / 2;
+  if (position.x > screenWidth - self.size.width / 2.0f) {
+    position.x = screenWidth - self.size.width / 2.0f;
   }
   
   // Move player to new position.
   self.position = CGPointMake(position.x, self.position.y);
 }
+
+-(SKAction *)createSpitAnimation {
+  // Spitting Animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:5];
+  
+  for (int i = 2; i <= 4; i++) {
+    NSString *textureName = [NSString stringWithFormat:@"player%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *animation = [SKAction animateWithTextures:textures timePerFrame:0.1f];
+  
+  return animation;
+}
+
 
 @end
