@@ -218,28 +218,25 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   [spit runAction:sequence completion:^{
     // Check for spit collisions.
-    [self checkSpit];
+    [self checkCollisions:spit];
     
     // Remove spit after moving.
     [spit removeFromParent];
   }];
 }
 
--(void)checkSpit {
-  [self enumerateChildNodesWithName:@"Spit" usingBlock:^(SKNode *spit, BOOL *stop) {
-    [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
+-(void)checkCollisions:(SKSpriteNode *)spit {
+  [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
       
-      // Reduce enemy frame to increase difficulty.
-      CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height / 4);
+    // Reduce enemy frame to increase difficulty.
+    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height / 4);
       
-      // Check if spit collided with enemy reduced frame.
-      if (CGRectIntersectsRect(spit.frame, collisionRect)) {
-        [enemy removeActionForKey:@"MoveToX"];
-        Enemy *e = (Enemy *)enemy;
-        e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
-      }
-      
-    }];
+    // Check if spit collided with enemy reduced frame.
+    if (CGRectIntersectsRect(spit.frame, collisionRect)) {
+      [enemy removeActionForKey:@"MoveToX"];
+      Enemy *e = (Enemy *)enemy;
+      e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
+    }
   }];
 }
 
