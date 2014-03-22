@@ -272,12 +272,12 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   
   // Check enemy direction to update move position and flip image if needed.
   if (enemy.position.x < 0) { // Right direction.
-    [enemy moveToX:self.size.width + enemy.size.width];
+    [enemy moveToX:self.size.width + enemy.size.width duration:duration];
   }
   else { // Left direction.
     // Flip enemy image.
     enemy.xScale = -1.0f;
-    [enemy moveToX:-enemy.size.width * 2];
+    [enemy moveToX:-enemy.size.width * 2 duration:duration];
   }
 }
 

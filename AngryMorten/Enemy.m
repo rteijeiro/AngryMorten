@@ -10,8 +10,8 @@
 
 @implementation Enemy
 
--(void)moveToX:(float)position {
-  SKAction *move = [SKAction moveToX:position + self.size.width duration:10.0];
+-(void)moveToX:(float)position duration:(float)duration {
+  SKAction *move = [SKAction moveToX:position + self.size.width duration:duration];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
   [self runAction:sequence withKey:@"MoveToX"];
