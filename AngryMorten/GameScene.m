@@ -245,7 +245,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)spawnEnemy {
   // Spawn random enemies.
-  int randomInt = arc4random_uniform(2);
+  int randomInt = arc4random_uniform(3);
   switch (randomInt) {
     case 0:
       [self createEnemy:@"car"];
@@ -253,6 +253,10 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       
     case 1:
       [self createEnemy:@"bike"];
+      break;
+      
+    case 2:
+      [self createEnemy:@"skateboard"];
       break;
       
     default:
