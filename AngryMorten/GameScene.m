@@ -16,6 +16,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
 }
 
+// Define enemy constants.
+#define ENEMY_CAR 0
+#define ENEMY_BIKE 1
+#define ENEMY_SKATEBOARD 2
+
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
   float _spawnTime;
@@ -246,28 +251,38 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 -(void)spawnEnemy {
   // Spawn random enemies.
   int randomInt = arc4random_uniform(3);
-  switch (randomInt) {
-    case 0:
-      [self createEnemy:@"car"];
+  
+  [self createEnemy:randomInt];
+}
+
+-(void)createEnemy:(int)type {
+  
+  NSString *imageName;
+  float duration;
+  
+  switch (type) {
+    case ENEMY_CAR:
+      imageName = @"car";
+      duration = 10.0;
       break;
       
-    case 1:
-      [self createEnemy:@"bike"];
+    case ENEMY_BIKE:
+      imageName = @"bike";
+      duration = 10.0;
       break;
       
-    case 2:
-      [self createEnemy:@"skateboard"];
+    case ENEMY_SKATEBOARD:
+      imageName = @"skateboard";
+      duration = 10.0;
       break;
       
     default:
       break;
   }
-}
 
--(void)createEnemy:(NSString *)type {
-  Enemy *enemy = [[Enemy alloc] initWithImageNamed:type];
-  enemy.position = [self randomEnemyPosition:enemy.size];
-  enemy.name = type;
+  Enemy *enemy = [[Enemy alloc] initWithImageNamed:imageName];
+  enemy.position = [self randomEnemyPosition:enemy.size enemyType:type];
+  enemy.name = imageName;
   [self addChild:enemy];
   
   // Check enemy direction to update move position and flip image if needed.
@@ -281,7 +296,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 }
 
--(CGPoint)randomEnemyPosition:(CGSize)vehicleSize {
+-(CGPoint)randomEnemyPosition:(CGSize)vehicleSize enemyType:(int)enemyType {
   float xPosition;
   
   // Random direction generation.
@@ -297,8 +312,20 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       break;
   }
   
-  // Calculate random position for enemies.
-  CGPoint position = CGPointMake(xPosition, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
+  CGPoint position;
+  
+  switch (enemyType) {
+    case ENEMY_SKATEBOARD:
+      // Calculate random position for skateboard enemies.
+      position = CGPointMake(xPosition, ScalarRandomRange(self.size.height / 2, self.size.height - self.size.height / 2 - vehicleSize.height / 2));
+      break;
+      
+    default:
+      // Calculate random position for car and bike enemies.
+      position = CGPointMake(xPosition, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
+      break;
+  }
+
   return position;
 }
 
