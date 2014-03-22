@@ -60,9 +60,9 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   // Create Aim for targetting spits.
   _aim = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
   _aim.name = @"Aim";
-  _aim.fontSize = 100.0f;
+  _aim.fontSize = 50.0f;
   _aim.fontColor = [SKColor whiteColor];
-  _aim.text = @"▶︎";
+  _aim.text = @"▲";
   _aim.position = CGPointMake(0.0f, self.size.height / 3);
   _aim.zPosition = 100.0f;
   
@@ -92,7 +92,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(void)moveAim {
-  _aim.position = CGPointMake(0.0f, self.size.height / 3);
+  _aim.position = CGPointMake(_player.position.x + _aim.frame.size.width / 4, self.size.height / 3);
   SKAction *animation = [SKAction moveToY:self.size.height - _aim.frame.size.height / 1.5 duration:1.0];
   [_aim runAction:animation withKey:@"aimAnimation"];
 }
