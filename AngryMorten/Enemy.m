@@ -11,7 +11,12 @@
 @implementation Enemy
 
 -(void)moveToX:(float)position duration:(float)duration {
-  SKAction *move = [SKAction moveToX:position + self.size.width duration:duration];
+  CGPoint origin = self.position;
+  SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
+  SKAction *bounceUp = [SKAction moveToY:origin.y - 1 duration:0.08];
+  SKAction *bounceDown = [SKAction moveToY:origin.y + 1 duration:0.08];
+  SKAction *bounce = [SKAction repeatActionForever:[SKAction sequence:@[bounceUp, bounceDown]]];
+  SKAction *move = [SKAction group:@[moveToX, bounce]];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
   [self runAction:sequence withKey:@"MoveToX"];
