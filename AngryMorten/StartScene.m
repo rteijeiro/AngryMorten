@@ -72,11 +72,18 @@
   SKSpriteNode *startButton = [SKSpriteNode spriteNodeWithImageNamed:@"start-button"];
   SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"start-title"];
     
-  startButton.position = CGPointMake(700.0, 90.0);
+  startButton.position = CGPointMake(self.size.width - startButton.size.width / 2, startButton.size.height / 2);
   startButton.name  = @"start";
   
-  title.position = CGPointMake(300.0, 600.0);
-    
+  title.position = CGPointMake(title.size.width / 2, self.size.height - title.size.height / 2);
+  
+  
+  SKAction *increaseButtonSize = [SKAction scaleBy:1.1 duration:0.2];
+  SKAction *decreaseButtonSize = [increaseButtonSize reversedAction];
+  SKAction *sequence = [SKAction sequence:@[increaseButtonSize, decreaseButtonSize]];
+
+  [startButton runAction:[SKAction repeatActionForever:sequence]];
+  
   [self addChild:startButton];
   [self addChild:title];
 }
