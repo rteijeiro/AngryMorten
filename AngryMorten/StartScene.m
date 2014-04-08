@@ -7,6 +7,7 @@
 //
 
 #import "StartScene.h"
+#import "GameScene.h"
 
 @implementation StartScene
 
@@ -74,6 +75,8 @@
     SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"start-title"];
     
     startButton.position = CGPointMake(700.0, 90.0);
+    startButton.name  = @"start";
+  
     title.position = CGPointMake(300.0, 600.0);
     
     [self addChild:startButton];
@@ -95,5 +98,21 @@
     
     [self addChild:startBuilding];
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Verify the user touched the start button.
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"start"]) {
+    // Start button.
+    GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
+    SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+    // 3
+    [self.view presentScene:gameScene transition:reveal];
+  }
+}
+
 
 @end

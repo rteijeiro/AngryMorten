@@ -10,4 +10,6 @@
 
 @interface GameScene : SKScene
 
+-(id)initWithSize:(CGSize)size;
+
 @end

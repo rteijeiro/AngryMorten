@@ -36,6 +36,9 @@
 		2B9874DD18CF8794004C6B6B /* slkscrb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874D318CF8794004C6B6B /* slkscrb.ttf */; };
 		2B9874DE18CF8794004C6B6B /* slkscre.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874D418CF8794004C6B6B /* slkscre.ttf */; };
 		2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874D518CF8794004C6B6B /* slkscreb.ttf */; };
+		2BB0F3C918E23AC6002D302A /* start-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0F3C818E23AC6002D302A /* start-building.png */; };
+		2BB0F3CB18E23EE4002D302A /* start-building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0F3CA18E23EE4002D302A /* start-building@2x.png */; };
+		2BB28FBE18E239C8004D8ABC /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB28FBD18E239C8004D8ABC /* StartScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,10 @@
 		2B9874D318CF8794004C6B6B /* slkscrb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscrb.ttf; sourceTree = "<group>"; };
 		2B9874D418CF8794004C6B6B /* slkscre.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscre.ttf; sourceTree = "<group>"; };
 		2B9874D518CF8794004C6B6B /* slkscreb.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = slkscreb.ttf; sourceTree = "<group>"; };
+		2BB0F3C818E23AC6002D302A /* start-building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-building.png"; sourceTree = "<group>"; };
+		2BB0F3CA18E23EE4002D302A /* start-building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-building@2x.png"; sourceTree = "<group>"; };
+		2BB28FBC18E239C8004D8ABC /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
+		2BB28FBD18E239C8004D8ABC /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +167,8 @@
 				2B98742718CBACD7004C6B6B /* Enemy.m */,
 				2B98742318CB8E4C004C6B6B /* Player.h */,
 				2B98742418CB8E4C004C6B6B /* Player.m */,
+				2BB28FBC18E239C8004D8ABC /* StartScene.h */,
+				2BB28FBD18E239C8004D8ABC /* StartScene.m */,
 				2B9873C218CB6A51004C6B6B /* Images.xcassets */,
 				2B9873A918CB6A51004C6B6B /* Supporting Files */,
 			);
@@ -209,6 +218,8 @@
 		2B9874CB18CF8794004C6B6B /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				2BB0F3CA18E23EE4002D302A /* start-building@2x.png */,
+				2BB0F3C818E23AC6002D302A /* start-building.png */,
 				2B9874CC18CF8794004C6B6B /* background.png */,
 				2B9874CD18CF8794004C6B6B /* background@2x.png */,
 				2B9874CE18CF8794004C6B6B /* start-bg.png */,
@@ -310,6 +321,7 @@
 			files = (
 				2B9874DB18CF8794004C6B6B /* readme.txt in Resources */,
 				2B9874DC18CF8794004C6B6B /* slkscr.ttf in Resources */,
+				2BB0F3C918E23AC6002D302A /* start-building.png in Resources */,
 				2B9874DE18CF8794004C6B6B /* slkscre.ttf in Resources */,
 				2B9873C318CB6A51004C6B6B /* Images.xcassets in Resources */,
 				2B9874DD18CF8794004C6B6B /* slkscrb.ttf in Resources */,
@@ -318,6 +330,7 @@
 				2B9873B918CB6A51004C6B6B /* Main_iPad.storyboard in Resources */,
 				2B9874D918CF8794004C6B6B /* start-bg.png in Resources */,
 				2B9874D818CF8794004C6B6B /* background@2x.png in Resources */,
+				2BB0F3CB18E23EE4002D302A /* start-building@2x.png in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
 				2B9873AD18CB6A51004C6B6B /* InfoPlist.strings in Resources */,
@@ -345,6 +358,7 @@
 				2B9873BC18CB6A51004C6B6B /* ViewController.m in Sources */,
 				2B9873B318CB6A51004C6B6B /* AppDelegate.m in Sources */,
 				2B9873AF18CB6A51004C6B6B /* main.m in Sources */,
+				2BB28FBE18E239C8004D8ABC /* StartScene.m in Sources */,
 				2B98742518CB8E4C004C6B6B /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
