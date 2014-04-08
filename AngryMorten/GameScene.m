@@ -29,6 +29,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKLabelNode *_time;
   SKLabelNode *_score;
   
+  SKSpriteNode *door;
+  
   Player *_player;
 }
 
@@ -123,6 +125,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   if ([node.name isEqualToString:@"Player"]) {
     // Start spitting.
     [_player spit];
+    [self openDoor];
     
     // Move Aim.
     [self moveAim];
@@ -137,6 +140,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   if ([node.name isEqualToString:@"Player"]) {
     // Shoot spit.
     [self shootSpit];
+    [self closeDoor];
   }
 }
 
@@ -148,6 +152,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   if ([node.name isEqualToString:@"Player"]) {
     // Shoot Spit;
     [self shootSpit];
+    [self closeDoor];
   }
 }
 
@@ -179,6 +184,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   _player.position = CGPointMake(self.size.width / 2.0f, _player.size.height / 2.0f);
   _player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
   _player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
+  _player.zPosition = 100;
   
   [self addChild:_player];
 }
@@ -329,6 +335,16 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 
   return position;
+}
+
+-(void)openDoor {
+  door = [SKSpriteNode spriteNodeWithImageNamed:@"open-door"];
+  door.position = CGPointMake(CGRectGetMidX(self.frame) + 4, CGRectGetMidY(self.frame) / 2 - 22.5);
+  [self addChild:door];
+}
+
+-(void)closeDoor {
+  [door removeFromParent];
 }
 
 @end
