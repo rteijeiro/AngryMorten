@@ -11,92 +11,90 @@
 
 @implementation StartScene
 
-
 -(id)initWithSize:(CGSize)size {
-    if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
-        [self showStartScreen];
-    }
-    return self;
+  if (self = [super initWithSize:size]) {
+    /* Setup your scene here */
+    [self showStartScreen];
+  }
+  return self;
 }
 
 -(void)slideMorten {
-    SKSpriteNode *morten = [SKSpriteNode spriteNodeWithImageNamed:@"start-morten"];
+  SKSpriteNode *morten = [SKSpriteNode spriteNodeWithImageNamed:@"start-morten"];
     
-    int offset = 60;
+  int offset = 60;
     
-    // Create path for Morten
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, 98, 768 + offset);
-    CGPathAddLineToPoint(path, NULL, 1024, 460 + offset);
-    CGPathAddLineToPoint(path, NULL, 764, 549 + offset);
+  // Create path for Morten.
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, 98, 768 + offset);
+  CGPathAddLineToPoint(path, NULL, 1024, 460 + offset);
+  CGPathAddLineToPoint(path, NULL, 764, 549 + offset);
     
-    // Animation for Morten
-    SKAction *sequence = [SKAction followPath:path asOffset:false orientToPath:false duration:3.0f ];
-    sequence.timingMode = SKActionTimingEaseInEaseOut;
+  // Animation for Morten.
+  SKAction *sequence = [SKAction followPath:path asOffset:false orientToPath:false duration:3.0f ];
+  sequence.timingMode = SKActionTimingEaseInEaseOut;
     
-    [self addChild:morten];
-    
-    [morten runAction:sequence completion:^{
-        [self mortenSpit];
-    }];
+  [self addChild:morten];
+  
+  [morten runAction:sequence completion:^{
+    [self mortenSpit];
+  }];
 }
 
 -(void)mortenSpit {
-    SKSpriteNode *spit = [SKSpriteNode spriteNodeWithImageNamed:@"start-spit"];
+  SKSpriteNode *spit = [SKSpriteNode spriteNodeWithImageNamed:@"start-spit"];
     
-    // Create path for Spit
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, 700.0, 550.0);
-    CGPathAddLineToPoint(path, NULL, 200.0, 0.0);
+  // Create path for Spit.
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, 700.0, 550.0);
+  CGPathAddLineToPoint(path, NULL, 200.0, 0.0);
     
-    SKAction *sequence = [SKAction followPath:path asOffset:false orientToPath:false duration:1.0f ];
-    sequence.timingMode = SKActionTimingEaseInEaseOut;
+  SKAction *sequence = [SKAction followPath:path asOffset:false orientToPath:false duration:1.0f ];
+  sequence.timingMode = SKActionTimingEaseInEaseOut;
     
-    [self addChild:spit];
+  [self addChild:spit];
     
-    [spit runAction:sequence completion:^{
-        [self flipTheBird];
-    }];
+  [spit runAction:sequence completion:^{
+    [self showGuy];
+  }];
 }
 
--(void)flipTheBird {
-    SKSpriteNode *birdFlipGuy = [SKSpriteNode spriteNodeWithImageNamed:@"start-guy"];
+-(void)showGuy {
+  SKSpriteNode *guy = [SKSpriteNode spriteNodeWithImageNamed:@"start-guy"];
     
-    birdFlipGuy.position = CGPointMake(220.0, 100.0);
+  guy.position = CGPointMake(220.0, 100.0);
     
-    [self addChild:birdFlipGuy];
-    
-    [self showButtons];
+  [self addChild:guy];
+  [self showButtons];
 }
 
 -(void)showButtons {
-    SKSpriteNode *startButton = [SKSpriteNode spriteNodeWithImageNamed:@"start-button"];
-    SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"start-title"];
+  SKSpriteNode *startButton = [SKSpriteNode spriteNodeWithImageNamed:@"start-button"];
+  SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"start-title"];
     
-    startButton.position = CGPointMake(700.0, 90.0);
-    startButton.name  = @"start";
+  startButton.position = CGPointMake(700.0, 90.0);
+  startButton.name  = @"start";
   
-    title.position = CGPointMake(300.0, 600.0);
+  title.position = CGPointMake(300.0, 600.0);
     
-    [self addChild:startButton];
-    [self addChild:title];
+  [self addChild:startButton];
+  [self addChild:title];
 }
 
 -(void)showStartScreen {
     
-    SKSpriteNode *startBuilding = [SKSpriteNode spriteNodeWithImageNamed:@"start-building"];
-    SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"start-roof"];
+  SKSpriteNode *startBuilding = [SKSpriteNode spriteNodeWithImageNamed:@"start-building"];
+  SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"start-roof"];
     
-    startBuilding.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    roof.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+  startBuilding.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+  roof.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+
+  [self addChild:roof];
+    
+  // Go Morten, go!
+  [self slideMorten];
   
-    [self addChild:roof];
-    
-    // Go Morten, go!
-    [self slideMorten];
-    
-    [self addChild:startBuilding];
+  [self addChild:startBuilding];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -113,6 +111,5 @@
     [self.view presentScene:gameScene transition:reveal];
   }
 }
-
 
 @end
