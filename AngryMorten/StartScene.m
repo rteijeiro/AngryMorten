@@ -89,8 +89,8 @@
     SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"start-roof"];
     
     startBuilding.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    roof.position = CGPointMake(0, 0);  
-    
+    roof.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+  
     [self addChild:roof];
     
     // Go Morten, go!
