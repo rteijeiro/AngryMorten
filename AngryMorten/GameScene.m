@@ -62,8 +62,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   _aim.name = @"Aim";
   _aim.fontSize = 50.0f;
   _aim.fontColor = [SKColor whiteColor];
-  _aim.text = @"▲";
-  _aim.position = CGPointMake(0.0f, self.size.height / 3);
+  _aim.text = @"⌖";
+  _aim.position = CGPointMake(0.0f, -self.size.height);
   _aim.zPosition = 100.0f;
   
   [self addChild:_aim];
@@ -110,6 +110,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   if ([node.name isEqualToString:@"Player"]) {
     // Move player.
     [_player moveTo:location screenWidth:self.size.width];
+    _aim.position = CGPointMake(_player.position.x, _aim.position.y);
   }
 }
 
@@ -240,6 +241,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       [enemy removeActionForKey:@"MoveToX"];
       Enemy *e = (Enemy *)enemy;
       e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
+      [e removeFromParent];
     }
   }];
 }
