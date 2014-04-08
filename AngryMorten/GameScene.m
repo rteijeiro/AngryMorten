@@ -20,6 +20,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 #define ENEMY_CAR 0
 #define ENEMY_BIKE 1
 #define ENEMY_SKATEBOARD 2
+#define ENEMY_MAN 3
+#define ENEMY_WOMAN 4
 
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
@@ -258,7 +260,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)spawnEnemy {
   // Spawn random enemies.
-  int randomInt = arc4random_uniform(3);
+  int randomInt = arc4random_uniform(5);
   
   [self createEnemy:randomInt];
 }
@@ -281,6 +283,16 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
       
     case ENEMY_SKATEBOARD:
       imageName = @"skateboard";
+      duration = 10.0;
+      break;
+      
+    case ENEMY_MAN:
+      imageName = @"man1";
+      duration = 10.0;
+      break;
+      
+    case ENEMY_WOMAN:
+      imageName = @"woman1";
       duration = 10.0;
       break;
       
