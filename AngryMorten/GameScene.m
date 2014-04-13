@@ -10,18 +10,14 @@
 #import "Player.h"
 #import "Enemy.h"
 
-// Helper function for random number calculation.
-#define ARC4RANDOM_MAX 0x100000000
-static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
-  return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
-}
-
 // Define enemy constants.
 #define ENEMY_CAR 0
 #define ENEMY_BIKE 1
 #define ENEMY_SKATEBOARD 2
-#define ENEMY_MAN 3
-#define ENEMY_WOMAN 4
+#define ENEMY_MAN_HORIZONTAL 3
+#define ENEMY_WOMAN_HORIZONTAL 4
+#define ENEMY_MAN_VERTICAL 5
+#define ENEMY_WOMAN_VERTICAL 6
 
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
@@ -263,49 +259,56 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)spawnEnemy {
   // Spawn random enemies.
-  int randomInt = arc4random_uniform(5);
+  int randomInt = arc4random_uniform(7);
   
   [self createEnemy:randomInt];
 }
 
 -(void)createEnemy:(int)type {
   
-  NSString *imageName;
+  Enemy *enemy;
   float duration;
   
   switch (type) {
     case ENEMY_CAR:
-      imageName = @"car";
+      enemy = [[Enemy alloc] initWithCar:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_BIKE:
-      imageName = @"bike";
+      enemy = [[Enemy alloc] initWithBike:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_SKATEBOARD:
-      imageName = @"skateboard";
+      enemy = [[Enemy alloc] initWithSkater:self.size];
       duration = 10.0;
       break;
       
-    case ENEMY_MAN:
-      imageName = @"man1";
+    case ENEMY_MAN_HORIZONTAL:
+      enemy = [[Enemy alloc] initWithManHorizontal:self.size];
       duration = 10.0;
       break;
       
-    case ENEMY_WOMAN:
-      imageName = @"woman1";
+    case ENEMY_WOMAN_HORIZONTAL:
+      enemy = [[Enemy alloc] initWithWomanHorizontal:self.size];
+      duration = 10.0;
+      break;
+      
+    case ENEMY_MAN_VERTICAL:
+      enemy = [[Enemy alloc] initWithManVertical:self.size];
+      duration = 10.0;
+      break;
+      
+    case ENEMY_WOMAN_VERTICAL:
+      enemy = [[Enemy alloc] initWithWomanVertical:self.size];
       duration = 10.0;
       break;
       
     default:
       break;
   }
-
-  Enemy *enemy = [[Enemy alloc] initWithImageNamed:imageName];
-  enemy.position = [self randomEnemyPosition:enemy.size enemyType:type];
-  enemy.name = imageName;
+  
   [self addChild:enemy];
   
   // Check enemy direction to update move position and flip image if needed.
@@ -317,39 +320,6 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     enemy.xScale = -1.0f;
     [enemy moveToX:-enemy.size.width * 2 duration:duration];
   }
-}
-
--(CGPoint)randomEnemyPosition:(CGSize)vehicleSize enemyType:(int)enemyType {
-  float xPosition;
-  
-  // Random direction generation.
-  int randomDirection = arc4random_uniform(2);
-  
-  switch (randomDirection) {
-    case 0: // Right direction.
-      xPosition = -vehicleSize.width;
-      break;
-      
-    case 1: // Left direction.
-      xPosition = self.size.width + vehicleSize.width;
-      break;
-  }
-  
-  CGPoint position;
-  
-  switch (enemyType) {
-    case ENEMY_SKATEBOARD:
-      // Calculate random position for skateboard enemies.
-      position = CGPointMake(xPosition, ScalarRandomRange(self.size.height / 2, self.size.height - self.size.height / 2 - vehicleSize.height / 2));
-      break;
-      
-    default:
-      // Calculate random position for car and bike enemies.
-      position = CGPointMake(xPosition, ScalarRandomRange(self.size.height - self.size.height / 3, self.size.height - vehicleSize.height / 2));
-      break;
-  }
-
-  return position;
 }
 
 -(void)openDoor {
