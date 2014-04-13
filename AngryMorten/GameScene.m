@@ -14,10 +14,12 @@
 #define ENEMY_CAR 0
 #define ENEMY_BIKE 1
 #define ENEMY_SKATEBOARD 2
-#define ENEMY_MAN_HORIZONTAL 3
-#define ENEMY_WOMAN_HORIZONTAL 4
-#define ENEMY_MAN_VERTICAL 5
-#define ENEMY_WOMAN_VERTICAL 6
+#define ENEMY_MAN 3
+#define ENEMY_WOMAN 4
+#define ENEMY_MAN_UP 5
+#define ENEMY_WOMAN_UP 6
+#define ENEMY_MAN_DOWN 7
+#define ENEMY_WOMAN_DOWN 8
 
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
@@ -259,7 +261,7 @@
 
 -(void)spawnEnemy {
   // Spawn random enemies.
-  int randomInt = arc4random_uniform(7);
+  int randomInt = arc4random_uniform(9);
   
   [self createEnemy:randomInt];
 }
@@ -285,41 +287,41 @@
       duration = 10.0;
       break;
       
-    case ENEMY_MAN_HORIZONTAL:
-      enemy = [[Enemy alloc] initWithManHorizontal:self.size];
+    case ENEMY_MAN:
+      enemy = [[Enemy alloc] initWithMan:self.size];
       duration = 10.0;
       break;
       
-    case ENEMY_WOMAN_HORIZONTAL:
-      enemy = [[Enemy alloc] initWithWomanHorizontal:self.size];
+    case ENEMY_WOMAN:
+      enemy = [[Enemy alloc] initWithWoman:self.size];
       duration = 10.0;
       break;
       
-    case ENEMY_MAN_VERTICAL:
-      enemy = [[Enemy alloc] initWithManVertical:self.size];
+    case ENEMY_MAN_UP:
+      enemy = [[Enemy alloc] initWithManUp:self.size];
       duration = 10.0;
       break;
       
-    case ENEMY_WOMAN_VERTICAL:
-      enemy = [[Enemy alloc] initWithWomanVertical:self.size];
+    case ENEMY_WOMAN_UP:
+      enemy = [[Enemy alloc] initWithWomanUp:self.size];
+      duration = 10.0;
+      break;
+
+    case ENEMY_MAN_DOWN:
+      enemy = [[Enemy alloc] initWithManDown:self.size];
       duration = 10.0;
       break;
       
+    case ENEMY_WOMAN_DOWN:
+      enemy = [[Enemy alloc] initWithWomanDown:self.size];
+      duration = 10.0;
+      break;
+
     default:
       break;
   }
   
   [self addChild:enemy];
-  
-  // Check enemy direction to update move position and flip image if needed.
-  if (enemy.position.x < 0) { // Right direction.
-    [enemy moveToX:self.size.width + enemy.size.width duration:duration];
-  }
-  else { // Left direction.
-    // Flip enemy image.
-    enemy.xScale = -1.0f;
-    [enemy moveToX:-enemy.size.width * 2 duration:duration];
-  }
 }
 
 -(void)openDoor {

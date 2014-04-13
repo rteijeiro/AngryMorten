@@ -13,10 +13,12 @@
 -(id)initWithCar:(CGSize)screenSize;
 -(id)initWithBike:(CGSize)screenSize;
 -(id)initWithSkater:(CGSize)screenSize;
--(id)initWithManHorizontal:(CGSize)screenSize;
--(id)initWithWomanHorizontal:(CGSize)screenSize;
--(id)initWithManVertical:(CGSize)screenSize;
--(id)initWithWomanVertical:(CGSize)screenSize;
+-(id)initWithMan:(CGSize)screenSize;
+-(id)initWithWoman:(CGSize)screenSize;
+-(id)initWithManUp:(CGSize)screenSize;
+-(id)initWithWomanUp:(CGSize)screenSize;
+-(id)initWithManDown:(CGSize)screenSize;
+-(id)initWithWomanDown:(CGSize)screenSize;
 
 -(void)moveToX:(float)position duration:(float)duration;
 -(float)randomXPosition:(CGSize)screenSize;

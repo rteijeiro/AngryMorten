@@ -32,6 +32,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
   }
   
+  [self move:10.0f screenSize:screenSize];
+  
   return self;
 }
 
@@ -44,6 +46,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
   }
   
+  [self move:10.0f screenSize:screenSize];
+  
   return self;
 }
 
@@ -55,11 +59,13 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     float xPosition = [self randomXPosition:screenSize];
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
+
+  [self move:10.0f screenSize:screenSize];
   
   return self;
 }
 
--(id)initWithManHorizontal:(CGSize)screenSize {
+-(id)initWithMan:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"man1"]) {
     self.name = @"Man";
     
@@ -67,11 +73,13 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     float xPosition = [self randomXPosition:screenSize];
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
+
+  [self move:10.0f screenSize:screenSize];
   
   return self;
 }
 
--(id)initWithWomanHorizontal:(CGSize)screenSize {
+-(id)initWithWoman:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"woman1"]) {
     self.name = @"Woman";
     
@@ -79,30 +87,56 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     float xPosition = [self randomXPosition:screenSize];
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
+ 
+  [self move:10.0f screenSize:screenSize];
   
   return self;
 }
 
--(id)initWithManVertical:(CGSize)screenSize {
+-(id)initWithManUp:(CGSize)screenSize {
+  if (self = [super initWithImageNamed:@"man-up1"]) {
+    self.name = @"Man";
+    
+    self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
+  }
+ 
+  [self moveToY:screenSize.height + self.size.height duration:5.0f];
+  
+  return self;
+}
+
+-(id)initWithWomanUp:(CGSize)screenSize {
+  if (self = [super initWithImageNamed:@"woman-up1"]) {
+    self.name = @"Woman";
+    
+    self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
+  }
+
+  [self moveToY:screenSize.height + self.size.height duration:5.0f];
+  
+  return self;
+}
+
+-(id)initWithManDown:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"man-down1"]) {
     self.name = @"Man";
     
-    // Calculate random position for man.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
+    self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
   }
+  
+  [self moveToY:screenSize.height / 3.5 duration:5.0f];
   
   return self;
 }
 
--(id)initWithWomanVertical:(CGSize)screenSize {
+-(id)initWithWomanDown:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"woman-down1"]) {
     self.name = @"Woman";
     
-    // Calculate random position for woman.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
+    self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
   }
+  
+  [self moveToY:screenSize.height / 3.5 duration:5.0f];
   
   return self;
 }
@@ -117,6 +151,13 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
   [self runAction:sequence withKey:@"MoveToX"];
+}
+
+-(void)moveToY:(float)position duration:(float)duration {
+  SKAction *moveToY = [SKAction moveToY:position duration:duration];
+  SKAction *remove = [SKAction removeFromParent];
+  SKAction *sequence = [SKAction sequence:@[moveToY, remove]];
+  [self runAction:sequence withKey:@"MoveToY"];
 }
 
 -(float)randomXPosition:(CGSize)screenSize {
@@ -136,6 +177,18 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 
   return xPosition;
+}
+
+-(void)move:(float)duration screenSize:(CGSize)screenSize {
+  // Check enemy direction to update move position and flip image if needed.
+  if (self.position.x < 0) { // Right direction.
+    [self moveToX:screenSize.width + self.size.width duration:duration];
+  }
+  else { // Left direction.
+    // Flip enemy image.
+    self.xScale = -1.0f;
+    [self moveToX:-self.size.width * 2 duration:duration];
+  }
 }
 
 @end
