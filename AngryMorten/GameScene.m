@@ -97,8 +97,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(void)moveAim {
   _aim.position = CGPointMake(_player.position.x + _aim.frame.size.width / 4, self.size.height / 3);
-  SKAction *animation = [SKAction moveToY:self.size.height - _aim.frame.size.height / 1.5 duration:1.0];
-  [_aim runAction:animation withKey:@"aimAnimation"];
+  SKAction *moveUp = [SKAction moveToY:self.size.height - _aim.frame.size.height / 1.5 duration:1.0];
+  SKAction *moveDown = [SKAction moveToY:self.size.height / 3 duration:1.0];
+  SKAction *sequence = [SKAction sequence:@[moveUp, moveDown]];
+  
+  [_aim runAction:[SKAction repeatActionForever:sequence] withKey:@"aimAnimation"];
 }
 
 -(void)stopAim {
