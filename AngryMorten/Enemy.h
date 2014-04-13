@@ -20,7 +20,8 @@
 -(id)initWithManDown:(CGSize)screenSize;
 -(id)initWithWomanDown:(CGSize)screenSize;
 
--(void)moveToX:(float)position duration:(float)duration;
+-(void)movePedestrianToX:(float)position duration:(float)duration;
+-(void)moveVehicleToX:(float)position duration:(float)duration;
 -(float)randomXPosition:(CGSize)screenSize;
 
 @end

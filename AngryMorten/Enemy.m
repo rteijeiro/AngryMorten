@@ -32,7 +32,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
   }
   
-  [self move:10.0f screenSize:screenSize];
+  [self moveVehicle:10.0f screenSize:screenSize];
   
   return self;
 }
@@ -46,7 +46,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
   }
   
-  [self move:10.0f screenSize:screenSize];
+  [self moveVehicle:10.0f screenSize:screenSize];
   
   return self;
 }
@@ -60,7 +60,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
 
-  [self move:10.0f screenSize:screenSize];
+  [self moveVehicle:10.0f screenSize:screenSize];
   
   return self;
 }
@@ -74,8 +74,20 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
 
-  [self move:10.0f screenSize:screenSize];
+  [self movePedestrian:10.0f screenSize:screenSize];
+
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"man%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
+
   return self;
 }
 
@@ -88,7 +100,19 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
   }
  
-  [self move:10.0f screenSize:screenSize];
+  [self movePedestrian:10.0f screenSize:screenSize];
+  
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
+  
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"woman%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
 }
@@ -101,6 +125,18 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
  
   [self moveToY:screenSize.height + self.size.height duration:5.0f];
+ 
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
+  
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"man-up%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
 }
@@ -113,6 +149,18 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 
   [self moveToY:screenSize.height + self.size.height duration:5.0f];
+
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
+  
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"woman-up%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
 }
@@ -125,6 +173,18 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
   
   [self moveToY:screenSize.height / 3.5 duration:5.0f];
+
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
+  
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"man-down%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
 }
@@ -137,11 +197,30 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
   
   [self moveToY:screenSize.height / 3.5 duration:5.0f];
+
+  // Create walking animation.
+  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
+  
+  for (int i = 2; i < 4; i++) {
+    NSString *imageName = [NSString stringWithFormat:@"woman-down%d", i];
+    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    [textures addObject:texture];
+  }
+  
+  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
+  [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
 }
 
--(void)moveToX:(float)position duration:(float)duration {
+-(void)movePedestrianToX:(float)position duration:(float)duration {
+  SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
+  SKAction *remove = [SKAction removeFromParent];
+  SKAction *sequence = [SKAction sequence:@[moveToX, remove]];
+  [self runAction:sequence withKey:@"MoveToX"];
+}
+
+-(void)moveVehicleToX:(float)position duration:(float)duration {
   CGPoint origin = self.position;
   SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
   SKAction *bounceUp = [SKAction moveToY:origin.y - 1 duration:0.08];
@@ -179,15 +258,27 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   return xPosition;
 }
 
--(void)move:(float)duration screenSize:(CGSize)screenSize {
+-(void)movePedestrian:(float)duration screenSize:(CGSize)screenSize {
   // Check enemy direction to update move position and flip image if needed.
   if (self.position.x < 0) { // Right direction.
-    [self moveToX:screenSize.width + self.size.width duration:duration];
+    [self movePedestrianToX:screenSize.width + self.size.width duration:duration];
   }
   else { // Left direction.
     // Flip enemy image.
     self.xScale = -1.0f;
-    [self moveToX:-self.size.width * 2 duration:duration];
+    [self movePedestrianToX:-self.size.width * 2 duration:duration];
+  }
+}
+
+-(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize {
+  // Check enemy direction to update move position and flip image if needed.
+  if (self.position.x < 0) { // Right direction.
+    [self moveVehicleToX:screenSize.width + self.size.width duration:duration];
+  }
+  else { // Left direction.
+    // Flip enemy image.
+    self.xScale = -1.0f;
+    [self moveVehicleToX:-self.size.width * 2 duration:duration];
   }
 }
 
