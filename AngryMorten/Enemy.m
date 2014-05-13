@@ -25,7 +25,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithCar:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"car"]) {
-    self.name = @"Car";
+    self.name = @"car";
     
     // Calculate random position for car.
     float xPosition = [self randomXPosition:screenSize];
@@ -39,7 +39,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithBike:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"bike"]) {
-    self.name = @"Bike";
+    self.name = @"bike";
     
     // Calculate random position for car.
     float xPosition = [self randomXPosition:screenSize];
@@ -53,7 +53,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithSkater:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"skater"]) {
-    self.name = @"Skater";
+    self.name = @"skater";
     
     // Calculate random position for skater.
     float xPosition = [self randomXPosition:screenSize];
@@ -67,7 +67,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithMan:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"man1"]) {
-    self.name = @"Man";
+    self.name = @"man";
     
     // Calculate random position for man.
     float xPosition = [self randomXPosition:screenSize];
@@ -93,7 +93,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithWoman:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"woman1"]) {
-    self.name = @"Woman";
+    self.name = @"woman";
     
     // Calculate random position for woman.
     float xPosition = [self randomXPosition:screenSize];
@@ -119,7 +119,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithManUp:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"man-up1"]) {
-    self.name = @"Man";
+    self.name = @"man-up";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
   }
@@ -143,7 +143,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithWomanUp:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"woman-up1"]) {
-    self.name = @"Woman";
+    self.name = @"woman-up";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
   }
@@ -167,7 +167,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithManDown:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"man-down1"]) {
-    self.name = @"Man";
+    self.name = @"man-down";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
   }
@@ -191,7 +191,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 -(id)initWithWomanDown:(CGSize)screenSize {
   if (self = [super initWithImageNamed:@"woman-down1"]) {
-    self.name = @"Woman";
+    self.name = @"woman-down";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
   }

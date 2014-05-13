@@ -26,8 +26,12 @@
   float _spawnTime;
   
   SKLabelNode *_aim;
-  SKLabelNode *_time;
-  SKLabelNode *_score;
+  
+  SKLabelNode *_timeLabel;
+  int _time;
+  
+  SKLabelNode *_scoreLabel;
+  int _score;
   
   SKSpriteNode *door;
   
@@ -62,7 +66,7 @@
   // Create Aim for targetting spits.
   _aim = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
   _aim.name = @"Aim";
-  _aim.fontSize = 50.0f;
+  _aim.fontSize = 100.0f;
   _aim.fontColor = [SKColor whiteColor];
   _aim.text = @"⌖";
   _aim.position = CGPointMake(0.0f, -self.size.height);
@@ -70,27 +74,29 @@
   
   [self addChild:_aim];
   
-  // Create label for Timer.
-  _time = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
-  _time.name = @"Time";
-  _time.fontSize = 30.0f;
-  _time.fontColor = [SKColor whiteColor];
-  _time.text = @"Time: 20:00:00";
-  _time.position = CGPointMake(_time.frame.size.width / 1.5, self.size.height - _time.frame.size.height * 2);
-  _time.zPosition = 100.0f;
+  // Create label for timer and init time variable.
+  _time = 120;
+  _timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _timeLabel.name = @"Time";
+  _timeLabel.fontSize = 30.0f;
+  _timeLabel.fontColor = [SKColor whiteColor];
+  _timeLabel.text = @"Time: 120";
+  _timeLabel.position = CGPointMake(_timeLabel.frame.size.width / 1.5, self.size.height - _timeLabel.frame.size.height * 2);
+  _timeLabel.zPosition = 100.0f;
   
-  [self addChild:_time];
+  [self addChild:_timeLabel];
   
-  // Create label for Score.
-  _score = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
-  _score.name = @"Score";
-  _score.fontSize = 30.0f;
-  _score.fontColor = [SKColor whiteColor];
-  _score.text = @"Score: 666";
-  _score.position = CGPointMake(self.size.width - _score.frame.size.width / 1.5, self.size.height - _score.frame.size.height * 2);
-  _score.zPosition = 100.0f;
+  // Create label for score and init score variable.
+  _score = 0;
+  _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _scoreLabel.name = @"Score";
+  _scoreLabel.fontSize = 30.0f;
+  _scoreLabel.fontColor = [SKColor whiteColor];
+  _scoreLabel.text = @"Score: 0";
+  _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width / 1.3, self.size.height - _scoreLabel.frame.size.height * 2);
+  _scoreLabel.zPosition = 100.0f;
   
-  [self addChild:_score];
+  [self addChild:_scoreLabel];
 }
 
 -(void)moveAim {
@@ -171,9 +177,14 @@
   _timeLastUpdate = currentTime;
   _spawnTime += elapsed;
   
-  // Spawn a new enemy every second.
+  // Spawn a new enemy every second and update timer.
   if (_spawnTime > 1.0f) {
     [self spawnEnemy];
+    
+    // Update timer variable and label.
+    _time -= 1;
+    _timeLabel.text = [NSString stringWithFormat:@"Time: %d", _time - 1];
+                       
     _spawnTime = 0.0f;
   }
 }
@@ -243,14 +254,25 @@
   [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
       
     // Reduce enemy frame to increase difficulty.
-    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width, enemy.frame.size.height);
+    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width / 2, enemy.frame.size.height / 2);
       
     // Check if spit collided with enemy reduced frame.
     if (CGRectIntersectsRect(spit.frame, collisionRect)) {
       [enemy removeActionForKey:@"MoveToX"];
       Enemy *e = (Enemy *)enemy;
       e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
-      [e removeFromParent];
+     
+      if ([enemy.name isEqualToString:@"car"] || [enemy.name isEqualToString:@"bike"] || [enemy.name isEqualToString:@"skater"]) {
+        _score += 50;
+      }
+      else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"] || [enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
+        _score += 10;
+      }
+      else if ([enemy.name isEqualToString:@"man"] || [enemy.name isEqualToString:@"woman"]) {
+        _score += 5;
+      }
+      
+      _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
     }
   }];
 }
