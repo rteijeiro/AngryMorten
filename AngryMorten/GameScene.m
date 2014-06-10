@@ -263,7 +263,7 @@
       
     // Check if spit collided with enemy reduced frame.
     if (CGRectIntersectsRect(spit.frame, collisionRect)) {
-      [enemy removeActionForKey:@"MoveToX"];
+      [enemy removeActionForKey:@"Move"];
       Enemy *e = (Enemy *)enemy;
       e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", e.name]];
      

@@ -10,9 +10,6 @@
 
 // Helper function for random number calculation.
 #define ARC4RANDOM_MAX 0x100000000
-static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
-  return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
-}
 
 @implementation Enemy
 
@@ -121,14 +118,14 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKAction *move = [SKAction group:@[moveToX, bounce]];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[move, remove]];
-  [self runAction:sequence withKey:@"MoveToX"];
+  [self runAction:sequence withKey:@"Move"];
 }
 
 -(void)moveToY:(float)position duration:(float)duration {
   SKAction *moveToY = [SKAction moveToY:position duration:duration];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[moveToY, remove]];
-  [self runAction:sequence withKey:@"MoveToY"];
+  [self runAction:sequence withKey:@"Move"];
 }
 
 -(float)randomXPosition:(CGSize)screenSize {
@@ -178,7 +175,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[moveToX, remove]];
-  [self runAction:sequence withKey:@"MoveToX"];
+  [self runAction:sequence withKey:@"Move"];
 }
 
 @end
