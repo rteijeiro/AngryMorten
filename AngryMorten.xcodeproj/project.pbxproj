@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B4B4E36192A142F000C68F4 /* Bike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4B4E35192A142F000C68F4 /* Bike.m */; };
+		2B4C22DF194776980067D5AD /* iPad.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22DE194776980067D5AD /* iPad.atlas */; };
+		2B906C091922A7CC004FAEB4 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B906C081922A7CC004FAEB4 /* Car.m */; };
 		2B9873A118CB6A51004C6B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A018CB6A51004C6B6B /* Foundation.framework */; };
 		2B9873A318CB6A51004C6B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A218CB6A51004C6B6B /* CoreGraphics.framework */; };
 		2B9873A518CB6A51004C6B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A418CB6A51004C6B6B /* UIKit.framework */; };
@@ -26,7 +29,6 @@
 		2B9873D618CB6A51004C6B6B /* AngryMortenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9873D518CB6A51004C6B6B /* AngryMortenTests.m */; };
 		2B98742518CB8E4C004C6B6B /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98742418CB8E4C004C6B6B /* Player.m */; };
 		2B98742818CBACD7004C6B6B /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98742718CBACD7004C6B6B /* Enemy.m */; };
-		2B9874D618CF8794004C6B6B /* Art.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874CA18CF8794004C6B6B /* Art.atlas */; };
 		2B9874D718CF8794004C6B6B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874CC18CF8794004C6B6B /* background.png */; };
 		2B9874D818CF8794004C6B6B /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874CD18CF8794004C6B6B /* background@2x.png */; };
 		2B9874D918CF8794004C6B6B /* start-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B9874CE18CF8794004C6B6B /* start-bg.png */; };
@@ -41,6 +43,8 @@
 		2BB0F3C918E23AC6002D302A /* start-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0F3C818E23AC6002D302A /* start-building.png */; };
 		2BB0F3CB18E23EE4002D302A /* start-building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BB0F3CA18E23EE4002D302A /* start-building@2x.png */; };
 		2BB28FBE18E239C8004D8ABC /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB28FBD18E239C8004D8ABC /* StartScene.m */; };
+		2BBE6DF41923E13D001B4334 /* Skater.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE6DF31923E13D001B4334 /* Skater.m */; };
+		2BBE6DF71923E1C8001B4334 /* Man.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE6DF61923E1C8001B4334 /* Man.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B4B4E34192A142F000C68F4 /* Bike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bike.h; sourceTree = "<group>"; };
+		2B4B4E35192A142F000C68F4 /* Bike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bike.m; sourceTree = "<group>"; };
+		2B4C22DE194776980067D5AD /* iPad.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = iPad.atlas; sourceTree = "<group>"; };
+		2B906C071922A7CC004FAEB4 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		2B906C081922A7CC004FAEB4 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		2B98739D18CB6A51004C6B6B /* AngryMorten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngryMorten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9873A018CB6A51004C6B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B9873A218CB6A51004C6B6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,7 +90,6 @@
 		2B98742418CB8E4C004C6B6B /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		2B98742618CBACD7004C6B6B /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		2B98742718CBACD7004C6B6B /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
-		2B9874CA18CF8794004C6B6B /* Art.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Art.atlas; sourceTree = "<group>"; };
 		2B9874CC18CF8794004C6B6B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		2B9874CD18CF8794004C6B6B /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		2B9874CE18CF8794004C6B6B /* start-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg.png"; sourceTree = "<group>"; };
@@ -97,6 +105,10 @@
 		2BB0F3CA18E23EE4002D302A /* start-building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-building@2x.png"; sourceTree = "<group>"; };
 		2BB28FBC18E239C8004D8ABC /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
 		2BB28FBD18E239C8004D8ABC /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
+		2BBE6DF21923E13D001B4334 /* Skater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skater.h; sourceTree = "<group>"; };
+		2BBE6DF31923E13D001B4334 /* Skater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skater.m; sourceTree = "<group>"; };
+		2BBE6DF51923E1C8001B4334 /* Man.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Man.h; sourceTree = "<group>"; };
+		2BBE6DF61923E1C8001B4334 /* Man.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Man.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +181,14 @@
 				2B9873BE18CB6A51004C6B6B /* GameScene.m */,
 				2B98742618CBACD7004C6B6B /* Enemy.h */,
 				2B98742718CBACD7004C6B6B /* Enemy.m */,
+				2BBE6DF51923E1C8001B4334 /* Man.h */,
+				2BBE6DF61923E1C8001B4334 /* Man.m */,
+				2B4B4E34192A142F000C68F4 /* Bike.h */,
+				2B4B4E35192A142F000C68F4 /* Bike.m */,
+				2BBE6DF21923E13D001B4334 /* Skater.h */,
+				2BBE6DF31923E13D001B4334 /* Skater.m */,
+				2B906C071922A7CC004FAEB4 /* Car.h */,
+				2B906C081922A7CC004FAEB4 /* Car.m */,
 				2B98742318CB8E4C004C6B6B /* Player.h */,
 				2B98742418CB8E4C004C6B6B /* Player.m */,
 				2BB28FBC18E239C8004D8ABC /* StartScene.h */,
@@ -211,7 +231,7 @@
 		2B9874C918CF8794004C6B6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2B9874CA18CF8794004C6B6B /* Art.atlas */,
+				2B4C22DE194776980067D5AD /* iPad.atlas */,
 				2B9874CB18CF8794004C6B6B /* Backgrounds */,
 				2B9874D018CF8794004C6B6B /* Fonts */,
 			);
@@ -338,11 +358,11 @@
 				2B9873B918CB6A51004C6B6B /* Main_iPad.storyboard in Resources */,
 				2B9874D918CF8794004C6B6B /* start-bg.png in Resources */,
 				2B9874D818CF8794004C6B6B /* background@2x.png in Resources */,
+				2B4C22DF194776980067D5AD /* iPad.atlas in Resources */,
 				2BB0F3CB18E23EE4002D302A /* start-building@2x.png in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
 				2B9873AD18CB6A51004C6B6B /* InfoPlist.strings in Resources */,
-				2B9874D618CF8794004C6B6B /* Art.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,12 +381,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4B4E36192A142F000C68F4 /* Bike.m in Sources */,
 				2B98742818CBACD7004C6B6B /* Enemy.m in Sources */,
 				2B9873BF18CB6A51004C6B6B /* GameScene.m in Sources */,
+				2BBE6DF71923E1C8001B4334 /* Man.m in Sources */,
 				2B9873BC18CB6A51004C6B6B /* ViewController.m in Sources */,
 				2B9873B318CB6A51004C6B6B /* AppDelegate.m in Sources */,
 				2B9873AF18CB6A51004C6B6B /* main.m in Sources */,
 				2BB28FBE18E239C8004D8ABC /* StartScene.m in Sources */,
+				2B906C091922A7CC004FAEB4 /* Car.m in Sources */,
+				2BBE6DF41923E13D001B4334 /* Skater.m in Sources */,
 				2B98742518CB8E4C004C6B6B /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
