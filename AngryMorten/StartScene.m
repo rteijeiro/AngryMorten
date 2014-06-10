@@ -20,7 +20,7 @@
 }
 
 -(void)slideMorten {
-  SKSpriteNode *morten = [SKSpriteNode spriteNodeWithImageNamed:@"start-morten"];
+  SKSpriteNode *morten = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-morten"];
     
   int offset = 60;
     
@@ -42,7 +42,7 @@
 }
 
 -(void)mortenSpit {
-  SKSpriteNode *spit = [SKSpriteNode spriteNodeWithImageNamed:@"start-spit"];
+  SKSpriteNode *spit = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-spit"];
     
   // Create path for Spit.
   CGMutablePathRef path = CGPathCreateMutable();
@@ -60,7 +60,7 @@
 }
 
 -(void)showGuy {
-  SKSpriteNode *guy = [SKSpriteNode spriteNodeWithImageNamed:@"start-guy"];
+  SKSpriteNode *guy = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-guy"];
     
   guy.position = CGPointMake(220.0, 100.0);
     
@@ -69,8 +69,8 @@
 }
 
 -(void)showButtons {
-  SKSpriteNode *startButton = [SKSpriteNode spriteNodeWithImageNamed:@"start-button"];
-  SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"start-title"];
+  SKSpriteNode *startButton = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-button"];
+  SKSpriteNode *title = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-title"];
     
   startButton.position = CGPointMake(self.size.width - startButton.size.width / 2, startButton.size.height / 2);
   startButton.name  = @"start";
@@ -90,8 +90,8 @@
 
 -(void)showStartScreen {
     
-  SKSpriteNode *startBuilding = [SKSpriteNode spriteNodeWithImageNamed:@"start-building"];
-  SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"start-roof"];
+  SKSpriteNode *startBuilding = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-building"];
+  SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-roof"];
     
   startBuilding.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
   roof.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));

@@ -8,13 +8,6 @@
 
 #import "Enemy.h"
 
-// Define enemy constants.
-#define ENEMY_CAR 0
-#define ENEMY_BIKE 1
-#define ENEMY_SKATEBOARD 2
-#define ENEMY_MAN 3
-#define ENEMY_WOMAN 4
-
 // Helper function for random number calculation.
 #define ARC4RANDOM_MAX 0x100000000
 static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
@@ -23,102 +16,8 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 
 @implementation Enemy
 
--(id)initWithCar:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"car"]) {
-    self.name = @"car";
-    
-    // Calculate random position for car.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
-  }
-  
-  [self moveVehicle:10.0f screenSize:screenSize];
-  
-  return self;
-}
-
--(id)initWithBike:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"bike"]) {
-    self.name = @"bike";
-    
-    // Calculate random position for car.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height - screenSize.height / 3, screenSize.height - self.size.height / 2));
-  }
-  
-  [self moveVehicle:10.0f screenSize:screenSize];
-  
-  return self;
-}
-
--(id)initWithSkater:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"skater"]) {
-    self.name = @"skater";
-    
-    // Calculate random position for skater.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
-  }
-
-  [self moveVehicle:10.0f screenSize:screenSize];
-  
-  return self;
-}
-
--(id)initWithMan:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"man1"]) {
-    self.name = @"man";
-    
-    // Calculate random position for man.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
-  }
-
-  [self movePedestrian:10.0f screenSize:screenSize];
-
-  // Create walking animation.
-  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
-  
-  for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"man%d", i];
-    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
-    [textures addObject:texture];
-  }
-  
-  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
-  [self runAction:[SKAction repeatActionForever:walk]];
-
-  return self;
-}
-
--(id)initWithWoman:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"woman1"]) {
-    self.name = @"woman";
-    
-    // Calculate random position for woman.
-    float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
-  }
- 
-  [self movePedestrian:10.0f screenSize:screenSize];
-  
-  // Create walking animation.
-  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
-  
-  for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"woman%d", i];
-    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
-    [textures addObject:texture];
-  }
-  
-  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
-  [self runAction:[SKAction repeatActionForever:walk]];
-  
-  return self;
-}
-
 -(id)initWithManUp:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"man-up1"]) {
+  if (self = [super initWithImageNamed:@"ipad-man-up1"]) {
     self.name = @"man-up";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
@@ -130,7 +29,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
   for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"man-up%d", i];
+    NSString *imageName = [NSString stringWithFormat:@"ipad-man-up%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     [textures addObject:texture];
   }
@@ -142,7 +41,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(id)initWithWomanUp:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"woman-up1"]) {
+  if (self = [super initWithImageNamed:@"ipad-woman-up1"]) {
     self.name = @"woman-up";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height / 3.5);
@@ -154,7 +53,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
   for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"woman-up%d", i];
+    NSString *imageName = [NSString stringWithFormat:@"ipad-woman-up%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     [textures addObject:texture];
   }
@@ -166,7 +65,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(id)initWithManDown:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"man-down1"]) {
+  if (self = [super initWithImageNamed:@"ipad-man-down1"]) {
     self.name = @"man-down";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
@@ -178,7 +77,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
   for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"man-down%d", i];
+    NSString *imageName = [NSString stringWithFormat:@"ipad-man-down%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     [textures addObject:texture];
   }
@@ -190,7 +89,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
 }
 
 -(id)initWithWomanDown:(CGSize)screenSize {
-  if (self = [super initWithImageNamed:@"woman-down1"]) {
+  if (self = [super initWithImageNamed:@"ipad-woman-down1"]) {
     self.name = @"woman-down";
     
     self.position = CGPointMake(screenSize.width / 2, screenSize.height + self.size.height);
@@ -202,7 +101,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
   for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"woman-down%d", i];
+    NSString *imageName = [NSString stringWithFormat:@"ipad-woman-down%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     [textures addObject:texture];
   }
@@ -211,13 +110,6 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   [self runAction:[SKAction repeatActionForever:walk]];
   
   return self;
-}
-
--(void)movePedestrianToX:(float)position duration:(float)duration {
-  SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
-  SKAction *remove = [SKAction removeFromParent];
-  SKAction *sequence = [SKAction sequence:@[moveToX, remove]];
-  [self runAction:sequence withKey:@"MoveToX"];
 }
 
 -(void)moveVehicleToX:(float)position duration:(float)duration {
@@ -258,6 +150,18 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   return xPosition;
 }
 
+-(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize {
+  // Check enemy direction to update move position and flip image if needed.
+  if (self.position.x < 0) { // Right direction.
+    [self moveVehicleToX:screenSize.width + self.size.width duration:duration];
+  }
+  else { // Left direction.
+    // Flip enemy image.
+    self.xScale = -1.0f;
+    [self moveVehicleToX:-self.size.width * 2 duration:duration];
+  }
+}
+
 -(void)movePedestrian:(float)duration screenSize:(CGSize)screenSize {
   // Check enemy direction to update move position and flip image if needed.
   if (self.position.x < 0) { // Right direction.
@@ -270,16 +174,11 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
   }
 }
 
--(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize {
-  // Check enemy direction to update move position and flip image if needed.
-  if (self.position.x < 0) { // Right direction.
-    [self moveVehicleToX:screenSize.width + self.size.width duration:duration];
-  }
-  else { // Left direction.
-    // Flip enemy image.
-    self.xScale = -1.0f;
-    [self moveVehicleToX:-self.size.width * 2 duration:duration];
-  }
+-(void)movePedestrianToX:(float)position duration:(float)duration {
+  SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
+  SKAction *remove = [SKAction removeFromParent];
+  SKAction *sequence = [SKAction sequence:@[moveToX, remove]];
+  [self runAction:sequence withKey:@"MoveToX"];
 }
 
 @end

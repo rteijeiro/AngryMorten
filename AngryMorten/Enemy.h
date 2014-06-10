@@ -10,18 +10,15 @@
 
 @interface Enemy : SKSpriteNode
 
--(id)initWithCar:(CGSize)screenSize;
--(id)initWithBike:(CGSize)screenSize;
--(id)initWithSkater:(CGSize)screenSize;
--(id)initWithMan:(CGSize)screenSize;
--(id)initWithWoman:(CGSize)screenSize;
 -(id)initWithManUp:(CGSize)screenSize;
 -(id)initWithWomanUp:(CGSize)screenSize;
 -(id)initWithManDown:(CGSize)screenSize;
 -(id)initWithWomanDown:(CGSize)screenSize;
 
+-(void)movePedestrian:(float)duration screenSize:(CGSize)screenSize;
 -(void)movePedestrianToX:(float)position duration:(float)duration;
 -(void)moveVehicleToX:(float)position duration:(float)duration;
+-(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize;
 -(float)randomXPosition:(CGSize)screenSize;
 
 @end

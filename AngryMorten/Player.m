@@ -53,7 +53,7 @@
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:5];
   
   for (int i = 2; i <= 4; i++) {
-    NSString *textureName = [NSString stringWithFormat:@"player%d", i];
+    NSString *textureName = [NSString stringWithFormat:@"ipad-player%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
     [textures addObject:texture];
   }

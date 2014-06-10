@@ -9,6 +9,11 @@
 #import "GameScene.h"
 #import "Player.h"
 #import "Enemy.h"
+#import "Car.h"
+#import "Bike.h"
+#import "Skater.h"
+#import "Man.h"
+#import "Woman.h"
 
 // Define enemy constants.
 #define ENEMY_CAR 0
@@ -57,7 +62,7 @@
 }
 
 -(void)loadBackground {
-  SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+  SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-background"];
   bg.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
   [self addChild:bg];
 }
@@ -194,10 +199,10 @@
 // ***********************
 
 -(void)loadPlayer {
-  _player = [[Player alloc] initWithImageNamed:@"player1"];
+  _player = [[Player alloc] initWithImageNamed:@"ipad-player1"];
   _player.position = CGPointMake(self.size.width / 2.0f, _player.size.height / 2.0f);
-  _player.initialImage = [SKTexture textureWithImageNamed:@"player1"];
-  _player.shootImage = [SKTexture textureWithImageNamed:@"player5"];
+  _player.initialImage = [SKTexture textureWithImageNamed:@"ipad-player1"];
+  _player.shootImage = [SKTexture textureWithImageNamed:@"ipad-player5"];
   _player.zPosition = 100;
   
   [self addChild:_player];
@@ -208,7 +213,7 @@
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:5];
   
   for (int i = 2; i <= 4; i++) {
-    NSString *textureName = [NSString stringWithFormat:@"player%d", i];
+    NSString *textureName = [NSString stringWithFormat:@"ipad-player%d", i];
     SKTexture *texture = [SKTexture textureWithImageNamed:textureName];
     [textures addObject:texture];
   }
@@ -226,7 +231,7 @@
   [self stopAim];
   
   // Create spit in player position.
-  SKSpriteNode *spit = [[SKSpriteNode alloc] initWithImageNamed:@"spit"];
+  SKSpriteNode *spit = [[SKSpriteNode alloc] initWithImageNamed:@"ipad-spit"];
   spit.position = CGPointMake(_player.position.x, _player.size.height);
   spit.name = @"Spit";
   [self addChild:spit];
@@ -260,7 +265,7 @@
     if (CGRectIntersectsRect(spit.frame, collisionRect)) {
       [enemy removeActionForKey:@"MoveToX"];
       Enemy *e = (Enemy *)enemy;
-      e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%@-hit", e.name]];
+      e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", e.name]];
      
       if ([enemy.name isEqualToString:@"car"] || [enemy.name isEqualToString:@"bike"] || [enemy.name isEqualToString:@"skater"]) {
         _score += 50;
@@ -295,27 +300,27 @@
   
   switch (type) {
     case ENEMY_CAR:
-      enemy = [[Enemy alloc] initWithCar:self.size];
+      enemy = [[Car alloc] initWithSize:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_BIKE:
-      enemy = [[Enemy alloc] initWithBike:self.size];
+      enemy = [[Bike alloc] initWithSize:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_SKATEBOARD:
-      enemy = [[Enemy alloc] initWithSkater:self.size];
+      enemy = [[Skater alloc] initWithSize:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_MAN:
-      enemy = [[Enemy alloc] initWithMan:self.size];
+      enemy = [[Man alloc] initWithSize:self.size];
       duration = 10.0;
       break;
       
     case ENEMY_WOMAN:
-      enemy = [[Enemy alloc] initWithWoman:self.size];
+      enemy = [[Woman alloc] initWithSize:self.size];
       duration = 10.0;
       break;
       
@@ -347,7 +352,7 @@
 }
 
 -(void)openDoor {
-  door = [SKSpriteNode spriteNodeWithImageNamed:@"open-door"];
+  door = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-open-door"];
   door.position = CGPointMake(CGRectGetMidX(self.frame) + 4, CGRectGetMidY(self.frame) / 2 - 22.5);
   [self addChild:door];
 }
