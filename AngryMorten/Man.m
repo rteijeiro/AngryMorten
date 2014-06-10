@@ -8,12 +8,6 @@
 
 #import "Man.h"
 
-// Helper function for random number calculation.
-#define ARC4RANDOM_MAX 0x100000000
-static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
-  return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
-}
-
 @implementation Man
 
 -(id)initWithSize:(CGSize)screenSize {
@@ -22,7 +16,7 @@ static inline CGFloat ScalarRandomRange(CGFloat min, CGFloat max) {
     
     // Calculate random position for man.
     float xPosition = [self randomXPosition:screenSize];
-    self.position = CGPointMake(xPosition, ScalarRandomRange(screenSize.height / 2, screenSize.height / 2 - self.size.height / 2));
+    self.position = CGPointMake(xPosition, [self scalarRandomRange:screenSize.height / 2 max:screenSize.height / 2 - self.size.height / 2]);
   }
   
   [self movePedestrian:10.0f screenSize:screenSize];

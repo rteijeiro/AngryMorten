@@ -8,7 +8,6 @@
 
 #import "Enemy.h"
 
-// Helper function for random number calculation.
 #define ARC4RANDOM_MAX 0x100000000
 
 @implementation Enemy
@@ -176,6 +175,11 @@
   SKAction *remove = [SKAction removeFromParent];
   SKAction *sequence = [SKAction sequence:@[moveToX, remove]];
   [self runAction:sequence withKey:@"Move"];
+}
+
+// Helper function for random number calculation.
+-(CGFloat)scalarRandomRange:(CGFloat)min max:(CGFloat)max {
+  return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
 }
 
 @end

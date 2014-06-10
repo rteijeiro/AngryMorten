@@ -20,5 +20,6 @@
 -(void)moveVehicleToX:(float)position duration:(float)duration;
 -(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize;
 -(float)randomXPosition:(CGSize)screenSize;
+-(CGFloat)scalarRandomRange:(CGFloat)min max:(CGFloat)max;
 
 @end
