@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "GameOverScene.h"
 #import "Player.h"
 #import "Enemy.h"
 #import "Car.h"
@@ -189,9 +190,23 @@
     // Update timer variable and label.
     _time -= 1;
     _timeLabel.text = [NSString stringWithFormat:@"Time: %d", _time - 1];
-                       
+    
+    // Check if time is over.
+    [self checkTimeOver];
+    
     _spawnTime = 0.0f;
   }
+}
+
+-(void)checkTimeOver {
+  if (_time == 0) {
+    [self gameOver];
+  }
+}
+
+-(void)gameOver {
+  GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size];
+  [self.view presentScene:gameOverScene transition:[SKTransition fadeWithDuration:2.0]];
 }
 
 // ***********************
