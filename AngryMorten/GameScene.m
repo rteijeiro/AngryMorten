@@ -141,6 +141,10 @@
   if ([node.name isEqualToString:@"Player"]) {
     // Start spitting.
     [_player spit];
+    
+    // Play loogie sound.
+    [self playLoogieSound];
+    
     [self openDoor];
     
     // Move Aim.
@@ -242,6 +246,10 @@
 -(void)shootSpit {
   // Stop player spitting animation.
   [_player spitStop];
+  
+  // Play spit sound.
+  [_loogieSoundPlayer stop];
+  [self playSpitSound];
   
   // Stop Aim.
   [self stopAim];
@@ -384,6 +392,24 @@
   _backgroundMusicPlayer.numberOfLoops = -1;
   [_backgroundMusicPlayer prepareToPlay];
   [_backgroundMusicPlayer play];
+}
+
+-(void)playLoogieSound {
+  NSError *error;
+  NSURL *loogieSoundURL = [[NSBundle mainBundle] URLForResource:@"loogie" withExtension:@"mp3"];
+  _loogieSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:loogieSoundURL error:&error];
+  _loogieSoundPlayer.numberOfLoops = 0;
+  [_loogieSoundPlayer prepareToPlay];
+  [_loogieSoundPlayer play];
+}
+
+-(void)playSpitSound {
+  NSError *error;
+  NSURL *spitSoundURL = [[NSBundle mainBundle] URLForResource:@"spit" withExtension:@"mp3"];
+  _spitSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:spitSoundURL error:&error];
+  _spitSoundPlayer.numberOfLoops = 0;
+  [_spitSoundPlayer prepareToPlay];
+  [_spitSoundPlayer play];
 }
 
 @end

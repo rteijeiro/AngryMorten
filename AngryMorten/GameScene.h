@@ -13,6 +13,8 @@
 @interface GameScene : SKScene
 
 @property (strong, nonatomic)  AVAudioPlayer *backgroundMusicPlayer;
+@property (strong, nonatomic)  AVAudioPlayer *loogieSoundPlayer;
+@property (strong, nonatomic)  AVAudioPlayer *spitSoundPlayer;
 
 -(id)initWithSize:(CGSize)size;
 
