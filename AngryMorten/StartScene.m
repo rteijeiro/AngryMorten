@@ -114,6 +114,9 @@
     // Stop background music.
     [_backgroundMusicPlayer stop];
     
+    // Play button sound.
+    [self playButtonSound];
+    
     // Start button.
     GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
@@ -127,6 +130,15 @@
   NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Soundscape_of_a_Madman_Instrumental" withExtension:@"mp3"];
   _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
   _backgroundMusicPlayer.numberOfLoops = -1;
+  [_backgroundMusicPlayer prepareToPlay];
+  [_backgroundMusicPlayer play];
+}
+
+-(void)playButtonSound {
+  NSError *error;
+  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"191591__fins__button" withExtension:@"wav"];
+  _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+  _backgroundMusicPlayer.numberOfLoops = 0;
   [_backgroundMusicPlayer prepareToPlay];
   [_backgroundMusicPlayer play];
 }
