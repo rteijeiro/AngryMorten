@@ -55,7 +55,8 @@
 		2BB28FBE18E239C8004D8ABC /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB28FBD18E239C8004D8ABC /* StartScene.m */; };
 		2BBE6DF41923E13D001B4334 /* Skater.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE6DF31923E13D001B4334 /* Skater.m */; };
 		2BBE6DF71923E1C8001B4334 /* Man.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE6DF61923E1C8001B4334 /* Man.m */; };
-		2BBFD77E19D09E8400A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD77D19D09E8400A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */; };
+		2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */; };
+		2BBFD78519D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +133,8 @@
 		2BBE6DF31923E13D001B4334 /* Skater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skater.m; sourceTree = "<group>"; };
 		2BBE6DF51923E1C8001B4334 /* Man.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Man.h; sourceTree = "<group>"; };
 		2BBE6DF61923E1C8001B4334 /* Man.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Man.m; sourceTree = "<group>"; };
-		2BBFD77D19D09E8400A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Soundscape_of_a_Madman_Instrumental.mp3; sourceTree = "<group>"; };
+		2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Psycho_Nu_Metal_Loop.mp3; sourceTree = "<group>"; };
+		2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Soundscape_of_a_Madman_Instrumental.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,7 +261,7 @@
 		2B9874C918CF8794004C6B6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2BBFD77C19D09E4D00A37F24 /* Music */,
+				2BBFD78119D0AEC300A37F24 /* Music */,
 				2BBFD77B19D09E3700A37F24 /* Sounds */,
 				2B4C22DE194776980067D5AD /* iPad.atlas */,
 				2B9874CB18CF8794004C6B6B /* Backgrounds */,
@@ -311,12 +313,13 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
-		2BBFD77C19D09E4D00A37F24 /* Music */ = {
+		2BBFD78119D0AEC300A37F24 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				2BBFD77D19D09E8400A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */,
+				2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */,
+				2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */,
 			);
-			name = Music;
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBFD78519D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */,
 				2B4C22EF1947785C0067D5AD /* ipad-start-building.png in Resources */,
 				2BA2402C19C8AE4C00F749F0 /* ipad-gameover-morten@2x.png in Resources */,
 				2BA2402719C8AE0500F749F0 /* ipad-gameover-background.png in Resources */,
@@ -418,9 +422,9 @@
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2BA2403019C8AF6400F749F0 /* ipad-gameover-skull@2x.png in Resources */,
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
+				2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */,
 				2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */,
 				2B4C22EB1947785C0067D5AD /* ipad-background.png in Resources */,
-				2BBFD77E19D09E8400A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */,
 				2B4C22F11947785C0067D5AD /* ipad-start-roof.png in Resources */,
 				2B4C22EC1947785C0067D5AD /* ipad-background@2x.png in Resources */,
 				2B4C22EE1947785C0067D5AD /* ipad-start-bg@2x.jpg in Resources */,
