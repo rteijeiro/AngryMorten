@@ -111,6 +111,9 @@
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"start"]) {
+    // Stop background music.
+    [_backgroundMusicPlayer stop];
+    
     // Start button.
     GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];

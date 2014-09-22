@@ -58,6 +58,7 @@
 
 -(void)startGame {
   [self loadBackground];
+  [self playBackgroundMusic];
   [self loadGUI];
   [self loadPlayer];
 }
@@ -374,6 +375,15 @@
 
 -(void)closeDoor {
   [door removeFromParent];
+}
+
+-(void)playBackgroundMusic {
+  NSError *error;
+  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Psycho_Nu_Metal_Loop" withExtension:@"mp3"];
+  _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+  _backgroundMusicPlayer.numberOfLoops = -1;
+  [_backgroundMusicPlayer prepareToPlay];
+  [_backgroundMusicPlayer play];
 }
 
 @end

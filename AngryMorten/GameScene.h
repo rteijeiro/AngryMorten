@@ -8,7 +8,11 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@import AVFoundation;
+
 @interface GameScene : SKScene
+
+@property (strong, nonatomic)  AVAudioPlayer *backgroundMusicPlayer;
 
 -(id)initWithSize:(CGSize)size;
 
