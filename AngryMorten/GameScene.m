@@ -210,6 +210,9 @@
 }
 
 -(void)gameOver {
+  // Stop backgound music.
+  [_backgroundMusicPlayer stop];
+  
   GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size];
   [self.view presentScene:gameOverScene transition:[SKTransition fadeWithDuration:2.0]];
 }
@@ -287,6 +290,10 @@
       
     // Check if spit collided with enemy reduced frame.
     if (CGRectIntersectsRect(spit.frame, collisionRect)) {
+      
+      // Play hit sound.
+      [self playHitSound];
+      
       [enemy removeActionForKey:@"Move"];
       Enemy *e = (Enemy *)enemy;
       e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", e.name]];
@@ -410,6 +417,15 @@
   _spitSoundPlayer.numberOfLoops = 0;
   [_spitSoundPlayer prepareToPlay];
   [_spitSoundPlayer play];
+}
+
+-(void)playHitSound {
+  NSError *error;
+  NSURL *hitSoundURL = [[NSBundle mainBundle] URLForResource:@"hit" withExtension:@"mp3"];
+  _hitSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:hitSoundURL error:&error];
+  _hitSoundPlayer.numberOfLoops = 0;
+  [_hitSoundPlayer prepareToPlay];
+  [_hitSoundPlayer play];
 }
 
 @end

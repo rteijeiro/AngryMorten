@@ -19,6 +19,10 @@
 }
 
 -(void)showGameOverScene {
+  
+  // Play Game Over sound.
+  [self playGameOverSound];
+  
   SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-gameover-background"];
   SKSpriteNode *skull = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-gameover-skull"];
   SKSpriteNode *text = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-gameover-text"];
@@ -34,6 +38,15 @@
   [self addChild:text];
   [self addChild:morten];
 
+}
+
+-(void)playGameOverSound {
+  NSError *error;
+  NSURL *gameoverSoundURL = [[NSBundle mainBundle] URLForResource:@"gameover" withExtension:@"mp3"];
+  _gameoverMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:gameoverSoundURL error:&error];
+  _gameoverMusicPlayer.numberOfLoops = 0;
+  [_gameoverMusicPlayer prepareToPlay];
+  [_gameoverMusicPlayer play];
 }
 
 @end

@@ -8,6 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@import AVFoundation;
+
 @interface GameOverScene : SKScene
+
+@property (strong, nonatomic)  AVAudioPlayer *gameoverMusicPlayer;
 
 @end

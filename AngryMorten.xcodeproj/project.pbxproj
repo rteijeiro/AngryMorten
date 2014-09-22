@@ -61,6 +61,7 @@
 		2BBFD78B19D0B5CF00A37F24 /* loogie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */; };
 		2BBFD78C19D0B5CF00A37F24 /* spit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */; };
 		2BBFD78E19D0B89B00A37F24 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78D19D0B89B00A37F24 /* hit.mp3 */; };
+		2BBFD79019D0BB5100A37F24 /* gameover.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78F19D0BB5100A37F24 /* gameover.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,7 @@
 		2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loogie.mp3; sourceTree = "<group>"; };
 		2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spit.mp3; sourceTree = "<group>"; };
 		2BBFD78D19D0B89B00A37F24 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
+		2BBFD78F19D0BB5100A37F24 /* gameover.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 				2BBFD78D19D0B89B00A37F24 /* hit.mp3 */,
 				2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */,
 				2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */,
+				2BBFD78F19D0BB5100A37F24 /* gameover.mp3 */,
 				2BBFD78719D0AFB200A37F24 /* 191591__fins__button.wav */,
 			);
 			path = Sounds;
@@ -436,6 +439,7 @@
 				2BA2403319C8AFAA00F749F0 /* ipad-gameover-text.png in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2BA2403019C8AF6400F749F0 /* ipad-gameover-skull@2x.png in Resources */,
+				2BBFD79019D0BB5100A37F24 /* gameover.mp3 in Resources */,
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
 				2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */,
 				2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */,
