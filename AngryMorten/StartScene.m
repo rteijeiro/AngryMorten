@@ -15,6 +15,7 @@
   if (self = [super initWithSize:size]) {
     /* Setup your scene here */
     [self showStartScreen];
+    [self playBackgroundMusic];
   }
   return self;
 }
@@ -89,7 +90,6 @@
 }
 
 -(void)showStartScreen {
-    
   SKSpriteNode *startBuilding = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-building"];
   SKSpriteNode *roof = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-start-roof"];
     
@@ -117,6 +117,15 @@
     // 3
     [self.view presentScene:gameScene transition:reveal];
   }
+}
+
+-(void)playBackgroundMusic {
+  NSError *error;
+  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Soundscape_of_a_Madman_Instrumental" withExtension:@"mp3"];
+  _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+  _backgroundMusicPlayer.numberOfLoops = -1;
+  [_backgroundMusicPlayer prepareToPlay];
+  [_backgroundMusicPlayer play];
 }
 
 @end

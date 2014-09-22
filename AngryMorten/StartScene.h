@@ -8,6 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@import AVFoundation;
+
 @interface StartScene : SKScene
+
+@property (strong, nonatomic)  AVAudioPlayer *backgroundMusicPlayer;
 
 @end
