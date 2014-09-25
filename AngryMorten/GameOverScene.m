@@ -10,9 +10,10 @@
 
 @implementation GameOverScene
 
--(id)initWithSize:(CGSize)size {
+-(id)initWithSize:(CGSize)size score:(int)score {
   if (self = [super initWithSize:size]) {
     /* Setup your scene here */
+    self.score = score;
     [self showGameOverScene];
   }
   return self;
@@ -37,6 +38,18 @@
   [self addChild:skull];
   [self addChild:text];
   [self addChild:morten];
+  
+  // Show score label.
+  // Create label for score and init score variable.
+  SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  scoreLabel.name = @"Score";
+  scoreLabel.fontSize = 60.0f;
+  scoreLabel.fontColor = [SKColor whiteColor];
+  scoreLabel.text = [NSString stringWithFormat:@"Total Score: %d", _score];
+  scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), scoreLabel.frame.size.height);
+  scoreLabel.zPosition = 100.0f;
+  
+  [self addChild:scoreLabel];
 
 }
 

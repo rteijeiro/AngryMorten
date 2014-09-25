@@ -12,6 +12,9 @@
 
 @interface GameOverScene : SKScene
 
-@property (strong, nonatomic)  AVAudioPlayer *gameoverMusicPlayer;
+@property (strong, nonatomic) AVAudioPlayer *gameoverMusicPlayer;
+@property (nonatomic) int score;
+
+-(id)initWithSize:(CGSize)size score:(int)score;
 
 @end

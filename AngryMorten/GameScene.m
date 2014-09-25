@@ -87,7 +87,7 @@
   _timeLabel.name = @"Time";
   _timeLabel.fontSize = 30.0f;
   _timeLabel.fontColor = [SKColor whiteColor];
-  _timeLabel.text = @"Time: 120";
+  _timeLabel.text = [NSString stringWithFormat:@"Time: %d", _time];
   _timeLabel.position = CGPointMake(_timeLabel.frame.size.width / 1.5, self.size.height - _timeLabel.frame.size.height * 2);
   _timeLabel.zPosition = 100.0f;
   
@@ -99,7 +99,7 @@
   _scoreLabel.name = @"Score";
   _scoreLabel.fontSize = 30.0f;
   _scoreLabel.fontColor = [SKColor whiteColor];
-  _scoreLabel.text = @"Score: 0";
+  _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
   _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width / 1.3, self.size.height - _scoreLabel.frame.size.height * 2);
   _scoreLabel.zPosition = 100.0f;
   
@@ -213,7 +213,7 @@
   // Stop backgound music.
   [_backgroundMusicPlayer stop];
   
-  GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size];
+  GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size score:_score];
   [self.view presentScene:gameOverScene transition:[SKTransition fadeWithDuration:2.0]];
 }
 
