@@ -327,52 +327,42 @@
 -(void)createEnemy:(int)type {
   
   Enemy *enemy;
-  float duration;
   
   switch (type) {
     case ENEMY_CAR:
       enemy = [[Car alloc] initWithSize:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_BIKE:
       enemy = [[Bike alloc] initWithSize:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_SKATEBOARD:
       enemy = [[Skater alloc] initWithSize:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_MAN:
       enemy = [[Man alloc] initWithSize:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_WOMAN:
       enemy = [[Woman alloc] initWithSize:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_MAN_UP:
       enemy = [[Enemy alloc] initWithManUp:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_WOMAN_UP:
       enemy = [[Enemy alloc] initWithWomanUp:self.size];
-      duration = 10.0;
       break;
 
     case ENEMY_MAN_DOWN:
       enemy = [[Enemy alloc] initWithManDown:self.size];
-      duration = 10.0;
       break;
       
     case ENEMY_WOMAN_DOWN:
       enemy = [[Enemy alloc] initWithWomanDown:self.size];
-      duration = 10.0;
       break;
 
     default:
