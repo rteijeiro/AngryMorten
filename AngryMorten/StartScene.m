@@ -136,7 +136,7 @@
 
 -(void)playButtonSound {
   NSError *error;
-  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"191591__fins__button" withExtension:@"wav"];
+  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"button" withExtension:@"wav"];
   _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
   _backgroundMusicPlayer.numberOfLoops = 0;
   [_backgroundMusicPlayer prepareToPlay];

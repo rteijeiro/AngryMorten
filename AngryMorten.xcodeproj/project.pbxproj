@@ -57,7 +57,7 @@
 		2BBE6DF71923E1C8001B4334 /* Man.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBE6DF61923E1C8001B4334 /* Man.m */; };
 		2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */; };
 		2BBFD78519D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */; };
-		2BBFD78819D0AFB200A37F24 /* 191591__fins__button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78719D0AFB200A37F24 /* 191591__fins__button.wav */; };
+		2BBFD78819D0AFB200A37F24 /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78719D0AFB200A37F24 /* button.wav */; };
 		2BBFD78B19D0B5CF00A37F24 /* loogie.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */; };
 		2BBFD78C19D0B5CF00A37F24 /* spit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */; };
 		2BBFD78E19D0B89B00A37F24 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BBFD78D19D0B89B00A37F24 /* hit.mp3 */; };
@@ -140,7 +140,7 @@
 		2BBE6DF61923E1C8001B4334 /* Man.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Man.m; sourceTree = "<group>"; };
 		2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Psycho_Nu_Metal_Loop.mp3; sourceTree = "<group>"; };
 		2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Soundscape_of_a_Madman_Instrumental.mp3; sourceTree = "<group>"; };
-		2BBFD78719D0AFB200A37F24 /* 191591__fins__button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 191591__fins__button.wav; sourceTree = "<group>"; };
+		2BBFD78719D0AFB200A37F24 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
 		2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loogie.mp3; sourceTree = "<group>"; };
 		2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spit.mp3; sourceTree = "<group>"; };
 		2BBFD78D19D0B89B00A37F24 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 				2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */,
 				2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */,
 				2BBFD78F19D0BB5100A37F24 /* gameover.mp3 */,
-				2BBFD78719D0AFB200A37F24 /* 191591__fins__button.wav */,
+				2BBFD78719D0AFB200A37F24 /* button.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -443,7 +443,7 @@
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
 				2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */,
 				2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */,
-				2BBFD78819D0AFB200A37F24 /* 191591__fins__button.wav in Resources */,
+				2BBFD78819D0AFB200A37F24 /* button.wav in Resources */,
 				2B4C22EB1947785C0067D5AD /* ipad-background.png in Resources */,
 				2B4C22F11947785C0067D5AD /* ipad-start-roof.png in Resources */,
 				2B4C22EC1947785C0067D5AD /* ipad-background@2x.png in Resources */,
