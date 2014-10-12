@@ -16,7 +16,8 @@
 #import "Man.h"
 #import "Woman.h"
 
-// Define enemy constants.
+// Define game constants.
+#define SPAWN_TIME 4
 #define ENEMY_CAR 0
 #define ENEMY_BIKE 1
 #define ENEMY_SKATEBOARD 2
@@ -29,6 +30,7 @@
 
 @implementation GameScene {
   NSTimeInterval _timeLastUpdate;
+  float _gameTime;
   float _spawnTime;
   
   SKLabelNode *_aim;
@@ -104,6 +106,9 @@
   _scoreLabel.zPosition = 100.0f;
   
   [self addChild:_scoreLabel];
+  
+  // Add door image.
+  [self addDoor];
 }
 
 -(void)moveAim {
@@ -145,8 +150,6 @@
     // Play loogie sound.
     [self playLoogieSound];
     
-    [self openDoor];
-    
     // Move Aim.
     [self moveAim];
   }
@@ -160,7 +163,6 @@
   if ([node.name isEqualToString:@"Player"]) {
     // Shoot spit.
     [self shootSpit];
-    [self closeDoor];
   }
 }
 
@@ -172,7 +174,6 @@
   if ([node.name isEqualToString:@"Player"]) {
     // Shoot Spit;
     [self shootSpit];
-    [self closeDoor];
   }
 }
 
@@ -186,11 +187,11 @@
     elapsed = 0;
   }
   _timeLastUpdate = currentTime;
+  _gameTime += elapsed;
   _spawnTime += elapsed;
   
-  // Spawn a new enemy every second and update timer.
-  if (_spawnTime > 1.0f) {
-    [self spawnEnemy];
+  // Update timer every second.
+  if (_gameTime > 1.0) {
     
     // Update timer variable and label.
     _time -= 1;
@@ -199,8 +200,16 @@
     // Check if time is over.
     [self checkTimeOver];
     
+    _gameTime = 0.0f;
+  }
+  
+  if (_spawnTime > SPAWN_TIME) {
+    [self spawnEnemy];
     _spawnTime = 0.0f;
   }
+  
+  // Check for open or close door.
+  [self checkDoor];
 }
 
 -(void)checkTimeOver {
@@ -284,7 +293,7 @@
 
 -(void)checkCollisions:(SKSpriteNode *)spit {
   [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
-      
+
     // Reduce enemy frame to increase difficulty.
     CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width / 2, enemy.frame.size.height / 2);
       
@@ -398,14 +407,27 @@
   [hitScoreLabel runAction:[SKAction sequence:@[scale, fadeOff, remove]]];
 }
 
--(void)openDoor {
+-(void)addDoor {
   door = [SKSpriteNode spriteNodeWithImageNamed:@"ipad-open-door"];
   door.position = CGPointMake(CGRectGetMidX(self.frame) + 4, CGRectGetMidY(self.frame) / 2 - 22.5);
+  door.alpha = 0.0;
   [self addChild:door];
 }
 
--(void)closeDoor {
-  [door removeFromParent];
+-(void)checkDoor {
+  [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
+    // Check if enemy collided with door. We only check man and woman up/down.
+    if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"] || [enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
+      if (enemy.position.y < self.frame.size.height / 2) {
+        // Open door.
+        door.alpha = 1.0;
+      }
+      else {
+        // Close door.
+        door.alpha = 0.0;
+      }
+    }
+  }];
 }
 
 -(void)playBackgroundMusic {
