@@ -294,19 +294,28 @@
       // Play hit sound.
       [self playHitSound];
 
-      // Enemy hit!
+      // Enemy hit.
       Enemy *e = (Enemy *)enemy;
       [e hit];
-     
+      
+      // Update score.
+      int hitScore = 0;
+      
       if ([enemy.name isEqualToString:@"car"] || [enemy.name isEqualToString:@"bike"] || [enemy.name isEqualToString:@"skater"]) {
-        _score += 50;
+        hitScore = 50;
+        _score += hitScore;
       }
       else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"] || [enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
-        _score += 10;
+        hitScore = 10;
+        _score += hitScore;
       }
       else if ([enemy.name isEqualToString:@"man"] || [enemy.name isEqualToString:@"woman"]) {
-        _score += 5;
+        hitScore = 5;
+        _score += hitScore;
       }
+      
+      // Create hit score label.
+      [self scoreLabel:hitScore frame:e.frame];
       
       _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
     }
@@ -370,6 +379,23 @@
   }
   
   [self addChild:enemy];
+}
+
+// Game methods.
+
+-(void)scoreLabel:(int)hitScore frame:(CGRect)frame {
+  SKLabelNode *hitScoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  hitScoreLabel.fontSize = 30.0f;
+  hitScoreLabel.fontColor = [SKColor whiteColor];
+  hitScoreLabel.text = [NSString stringWithFormat:@"%d", hitScore];
+  hitScoreLabel.position = CGPointMake(frame.origin.x + frame.size.width / 2, frame.origin.y + frame.size.height);
+  hitScoreLabel.zPosition = 100.0f;
+  [self addChild:hitScoreLabel];
+
+  SKAction *fadeOff = [SKAction fadeOutWithDuration:0.5];
+  SKAction *scale = [SKAction scaleBy:5.0 duration:0.5];
+  SKAction *remove = [SKAction removeFromParent];
+  [hitScoreLabel runAction:[SKAction sequence:@[scale, fadeOff, remove]]];
 }
 
 -(void)openDoor {
