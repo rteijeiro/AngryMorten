@@ -37,9 +37,14 @@
 }
 
 -(void)hit {
-  [self removeActionForKey:@"Move"];
-  [self removeActionForKey:@"Walk"];
-  self.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", self.name]];
+  SKTexture *texture = self.texture;
+  SKAction *action = [SKAction customActionWithDuration:0.2 actionBlock:^(SKNode *node, CGFloat elapsedTime){
+    self.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", self.name]];
+  }];
+  
+  [self runAction:action completion:^{
+    self.texture = texture;
+  }];
 }
 
 @end
