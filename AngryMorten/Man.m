@@ -22,16 +22,7 @@
   [self movePedestrian:10.0f screenSize:screenSize];
   
   // Create walking animation.
-  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
-  
-  for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"ipad-man%d", i];
-    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
-    [textures addObject:texture];
-  }
-  
-  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
-  [self runAction:[SKAction repeatActionForever:walk]];
+  [self walk];
   
   return self;
 }
