@@ -46,16 +46,7 @@
   [self moveToY:screenSize.height + self.size.height duration:5.0f];
   
   // Create walking animation.
-  NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
-  
-  for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"ipad-man-up%d", i];
-    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
-    [textures addObject:texture];
-  }
-  
-  SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
-  [self runAction:[SKAction repeatActionForever:walk]];
+  [self walk];
   
   return self;
 }
@@ -69,19 +60,23 @@
   
   [self moveToY:screenSize.height / 3.5 duration:5.0f];
   
-  // Create walking animation.
+  // Add walking animation.
+  [self walk];
+  
+  return self;
+}
+
+-(void)walk {
   NSMutableArray *textures = [NSMutableArray arrayWithCapacity:2];
   
   for (int i = 2; i < 4; i++) {
-    NSString *imageName = [NSString stringWithFormat:@"ipad-man-down%d", i];
+    NSString *imageName = [NSString stringWithFormat:@"ipad-%@%d", self.name, i];
     SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
     [textures addObject:texture];
   }
   
   SKAction *walk = [SKAction animateWithTextures:textures timePerFrame:0.15f];
-  [self runAction:[SKAction repeatActionForever:walk]];
-  
-  return self;
+  [self runAction:[SKAction repeatActionForever:walk] withKey:@"Walk"];
 }
 
 -(void)moveToY:(float)position duration:(float)duration {

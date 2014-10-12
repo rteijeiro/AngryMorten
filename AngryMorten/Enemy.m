@@ -38,6 +38,7 @@
 
 -(void)hit {
   [self removeActionForKey:@"Move"];
+  [self removeActionForKey:@"Walk"];
   self.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", self.name]];
 }
 
