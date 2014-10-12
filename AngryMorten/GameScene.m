@@ -350,19 +350,19 @@
       break;
       
     case ENEMY_MAN_UP:
-      enemy = [[Enemy alloc] initWithManUp:self.size];
+      enemy = [[Man alloc] initWithManUp:self.size];
       break;
       
     case ENEMY_WOMAN_UP:
-      enemy = [[Enemy alloc] initWithWomanUp:self.size];
+      enemy = [[Woman alloc] initWithWomanUp:self.size];
       break;
 
     case ENEMY_MAN_DOWN:
-      enemy = [[Enemy alloc] initWithManDown:self.size];
+      enemy = [[Man alloc] initWithManDown:self.size];
       break;
       
     case ENEMY_WOMAN_DOWN:
-      enemy = [[Enemy alloc] initWithWomanDown:self.size];
+      enemy = [[Woman alloc] initWithWomanDown:self.size];
       break;
 
     default:

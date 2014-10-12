@@ -11,5 +11,7 @@
 @interface Woman : Enemy
 
 -(id)initWithSize:(CGSize)screenSize;
+-(id)initWithWomanUp:(CGSize)screenSize;
+-(id)initWithWomanDown:(CGSize)screenSize;
 
 @end

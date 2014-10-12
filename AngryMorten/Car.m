@@ -24,4 +24,28 @@
   return self;
 }
 
+-(void)moveVehicle:(float)duration screenSize:(CGSize)screenSize {
+  // Check enemy direction to update move position and flip image if needed.
+  if (self.position.x < 0) { // Right direction.
+    [self moveVehicleToX:screenSize.width + self.size.width duration:duration];
+  }
+  else { // Left direction.
+    // Flip enemy image.
+    self.xScale = -1.0f;
+    [self moveVehicleToX:-self.size.width * 2 duration:duration];
+  }
+}
+
+-(void)moveVehicleToX:(float)position duration:(float)duration {
+  CGPoint origin = self.position;
+  SKAction *moveToX = [SKAction moveToX:position + self.size.width duration:duration];
+  SKAction *bounceUp = [SKAction moveToY:origin.y - 1 duration:0.08];
+  SKAction *bounceDown = [SKAction moveToY:origin.y + 1 duration:0.08];
+  SKAction *bounce = [SKAction repeatActionForever:[SKAction sequence:@[bounceUp, bounceDown]]];
+  SKAction *move = [SKAction group:@[moveToX, bounce]];
+  SKAction *remove = [SKAction removeFromParent];
+  SKAction *sequence = [SKAction sequence:@[move, remove]];
+  [self runAction:sequence withKey:@"Move"];
+}
+
 @end

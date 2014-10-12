@@ -11,5 +11,7 @@
 @interface Man : Enemy
 
 -(id)initWithSize:(CGSize)screenSize;
+-(id)initWithManUp:(CGSize)screenSize;
+-(id)initWithManDown:(CGSize)screenSize;
 
 @end
