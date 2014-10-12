@@ -12,5 +12,6 @@
 
 -(float)randomXPosition:(CGSize)screenSize;
 -(CGFloat)scalarRandomRange:(CGFloat)min max:(CGFloat)max;
+-(void)hit;
 
 @end

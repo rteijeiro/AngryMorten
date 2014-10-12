@@ -293,10 +293,10 @@
       
       // Play hit sound.
       [self playHitSound];
-      
-      [enemy removeActionForKey:@"Move"];
+
+      // Enemy hit!
       Enemy *e = (Enemy *)enemy;
-      e.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", e.name]];
+      [e hit];
      
       if ([enemy.name isEqualToString:@"car"] || [enemy.name isEqualToString:@"bike"] || [enemy.name isEqualToString:@"skater"]) {
         _score += 50;

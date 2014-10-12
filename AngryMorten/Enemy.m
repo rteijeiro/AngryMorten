@@ -36,4 +36,9 @@
   return floorf(((double)arc4random() / ARC4RANDOM_MAX) * (max - min) + min);
 }
 
+-(void)hit {
+  [self removeActionForKey:@"Move"];
+  self.texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"ipad-%@-hit", self.name]];
+}
+
 @end
