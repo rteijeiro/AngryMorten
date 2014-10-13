@@ -281,7 +281,7 @@
   SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2.0f duration:duration];
   
   // Animate spit size.
-  SKAction *spitSize = [SKAction sequence:@[[SKAction scaleBy:2.0 duration:duration / 1.5], [SKAction scaleBy:0.5 duration:duration / 4]]];
+  SKAction *spitSize = [SKAction sequence:@[[SKAction scaleBy:2.0 duration:duration / 1.5], [SKAction scaleBy:0.2 duration:duration / 4]]];
   
   // Full animation sequence.
   SKAction *sequence = [SKAction group:@[spitSize, spitMove]];
@@ -298,11 +298,8 @@
 -(void)checkCollisions:(SKSpriteNode *)spit {
   [self enumerateChildNodesWithName:@"Enemy" usingBlock:^(SKNode *enemy, BOOL *stop) {
 
-    // Reduce enemy frame to increase difficulty.
-    CGRect collisionRect = CGRectMake(enemy.position.x, enemy.position.y, enemy.frame.size.width / 2, enemy.frame.size.height / 2);
-      
     // Check if spit collided with enemy reduced frame.
-    if (CGRectIntersectsRect(spit.frame, collisionRect)) {
+    if (CGRectIntersectsRect(spit.frame, enemy.frame)) {
       
       // Play hit sound.
       [self playHitSound];
