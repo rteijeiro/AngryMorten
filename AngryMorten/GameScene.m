@@ -280,8 +280,11 @@
   // Move spit to aim position.
   SKAction *spitMove = [SKAction moveToY:_aim.position.y + _aim.frame.size.height / 2.0f duration:duration];
   
+  // Animate spit size.
+  SKAction *spitSize = [SKAction sequence:@[[SKAction scaleBy:2.0 duration:duration / 1.5], [SKAction scaleBy:0.5 duration:duration / 4]]];
+  
   // Full animation sequence.
-  SKAction *sequence = [SKAction sequence:@[spitMove]];
+  SKAction *sequence = [SKAction group:@[spitSize, spitMove]];
   
   [spit runAction:sequence completion:^{
     // Check for spit collisions.
