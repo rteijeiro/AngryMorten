@@ -18,6 +18,9 @@
 		2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E81947785C0067D5AD /* ipad-start-building@2x.png */; };
 		2B4C22F11947785C0067D5AD /* ipad-start-roof.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E91947785C0067D5AD /* ipad-start-roof.png */; };
 		2B4C22F21947785C0067D5AD /* ipad-start-roof@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22EA1947785C0067D5AD /* ipad-start-roof@2x.png */; };
+		2B65312B19EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312819EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 */; };
+		2B65312C19EC15B700CB0118 /* Simple_Metal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312919EC15B700CB0118 /* Simple_Metal.mp3 */; };
+		2B65312D19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312A19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 */; };
 		2B906C091922A7CC004FAEB4 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B906C081922A7CC004FAEB4 /* Car.m */; };
 		2B9873A118CB6A51004C6B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A018CB6A51004C6B6B /* Foundation.framework */; };
 		2B9873A318CB6A51004C6B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A218CB6A51004C6B6B /* CoreGraphics.framework */; };
@@ -88,6 +91,9 @@
 		2B4C22E81947785C0067D5AD /* ipad-start-building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-building@2x.png"; sourceTree = "<group>"; };
 		2B4C22E91947785C0067D5AD /* ipad-start-roof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-roof.png"; sourceTree = "<group>"; };
 		2B4C22EA1947785C0067D5AD /* ipad-start-roof@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-roof@2x.png"; sourceTree = "<group>"; };
+		2B65312819EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ive_Got_a_Bazooka_Man.mp3; sourceTree = "<group>"; };
+		2B65312919EC15B700CB0118 /* Simple_Metal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Simple_Metal.mp3; sourceTree = "<group>"; };
+		2B65312A19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Six_by_Eight_Thunder.mp3; sourceTree = "<group>"; };
 		2B906C071922A7CC004FAEB4 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		2B906C081922A7CC004FAEB4 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		2B98739D18CB6A51004C6B6B /* AngryMorten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngryMorten.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,6 +327,9 @@
 			children = (
 				2BBFD78219D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 */,
 				2BBFD78319D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 */,
+				2B65312819EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 */,
+				2B65312919EC15B700CB0118 /* Simple_Metal.mp3 */,
+				2B65312A19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -429,17 +438,20 @@
 				2BBFD78E19D0B89B00A37F24 /* hit.mp3 in Resources */,
 				2B9874DE18CF8794004C6B6B /* slkscre.ttf in Resources */,
 				2BA2402B19C8AE4C00F749F0 /* ipad-gameover-morten.png in Resources */,
+				2B65312D19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 in Resources */,
 				2B9873C318CB6A51004C6B6B /* Images.xcassets in Resources */,
 				2B9874DD18CF8794004C6B6B /* slkscrb.ttf in Resources */,
 				2BBFD78C19D0B5CF00A37F24 /* spit.mp3 in Resources */,
 				2B9873B918CB6A51004C6B6B /* Main_iPad.storyboard in Resources */,
 				2B4C22DF194776980067D5AD /* iPad.atlas in Resources */,
 				2B4C22F21947785C0067D5AD /* ipad-start-roof@2x.png in Resources */,
+				2B65312B19EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 in Resources */,
 				2BBFD78B19D0B5CF00A37F24 /* loogie.mp3 in Resources */,
 				2BA2403319C8AFAA00F749F0 /* ipad-gameover-text.png in Resources */,
 				2B9873B618CB6A51004C6B6B /* Main_iPhone.storyboard in Resources */,
 				2BA2403019C8AF6400F749F0 /* ipad-gameover-skull@2x.png in Resources */,
 				2BBFD79019D0BB5100A37F24 /* gameover.mp3 in Resources */,
+				2B65312C19EC15B700CB0118 /* Simple_Metal.mp3 in Resources */,
 				2B9874DF18CF8794004C6B6B /* slkscreb.ttf in Resources */,
 				2BBFD78419D0AEC300A37F24 /* Psycho_Nu_Metal_Loop.mp3 in Resources */,
 				2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */,

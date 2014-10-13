@@ -432,8 +432,34 @@
 }
 
 -(void)playBackgroundMusic {
+
   NSError *error;
-  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Psycho_Nu_Metal_Loop" withExtension:@"mp3"];
+  
+  // Create a random number.
+  int randomInt = arc4random_uniform(4);
+  
+  // Define default background music.
+  NSString *backgroundMusic;
+  
+  switch (randomInt) {
+    case 1:
+      backgroundMusic = @"Psycho_Nu_Metal_Loop";
+      break;
+    
+    case 2:
+      backgroundMusic = @"Ive_Got_a_Bazooka_Man";
+      break;
+      
+    case 3:
+      backgroundMusic = @"Simple_Metal";
+      break;
+      
+    case 4:
+      backgroundMusic = @"Six_by_Eight_Thunder";
+      break;
+  }
+  
+  NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:backgroundMusic withExtension:@"mp3"];
   _backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
   _backgroundMusicPlayer.numberOfLoops = -1;
   [_backgroundMusicPlayer prepareToPlay];
