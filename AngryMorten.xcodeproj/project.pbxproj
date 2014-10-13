@@ -12,8 +12,6 @@
 		2B4C22E21947774C0067D5AD /* Woman.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C22E11947774C0067D5AD /* Woman.m */; };
 		2B4C22EB1947785C0067D5AD /* ipad-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E31947785C0067D5AD /* ipad-background.png */; };
 		2B4C22EC1947785C0067D5AD /* ipad-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E41947785C0067D5AD /* ipad-background@2x.png */; };
-		2B4C22ED1947785C0067D5AD /* ipad-start-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E51947785C0067D5AD /* ipad-start-bg.png */; };
-		2B4C22EE1947785C0067D5AD /* ipad-start-bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E61947785C0067D5AD /* ipad-start-bg@2x.jpg */; };
 		2B4C22EF1947785C0067D5AD /* ipad-start-building.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E71947785C0067D5AD /* ipad-start-building.png */; };
 		2B4C22F01947785C0067D5AD /* ipad-start-building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E81947785C0067D5AD /* ipad-start-building@2x.png */; };
 		2B4C22F11947785C0067D5AD /* ipad-start-roof.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4C22E91947785C0067D5AD /* ipad-start-roof.png */; };
@@ -85,8 +83,6 @@
 		2B4C22E11947774C0067D5AD /* Woman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Woman.m; sourceTree = "<group>"; };
 		2B4C22E31947785C0067D5AD /* ipad-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-background.png"; sourceTree = "<group>"; };
 		2B4C22E41947785C0067D5AD /* ipad-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-background@2x.png"; sourceTree = "<group>"; };
-		2B4C22E51947785C0067D5AD /* ipad-start-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-bg.png"; sourceTree = "<group>"; };
-		2B4C22E61947785C0067D5AD /* ipad-start-bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ipad-start-bg@2x.jpg"; sourceTree = "<group>"; };
 		2B4C22E71947785C0067D5AD /* ipad-start-building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-building.png"; sourceTree = "<group>"; };
 		2B4C22E81947785C0067D5AD /* ipad-start-building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-building@2x.png"; sourceTree = "<group>"; };
 		2B4C22E91947785C0067D5AD /* ipad-start-roof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-start-roof.png"; sourceTree = "<group>"; };
@@ -300,8 +296,6 @@
 				2BA2402619C8AE0500F749F0 /* ipad-gameover-background@2x.png */,
 				2B4C22E31947785C0067D5AD /* ipad-background.png */,
 				2B4C22E41947785C0067D5AD /* ipad-background@2x.png */,
-				2B4C22E51947785C0067D5AD /* ipad-start-bg.png */,
-				2B4C22E61947785C0067D5AD /* ipad-start-bg@2x.jpg */,
 				2B4C22E71947785C0067D5AD /* ipad-start-building.png */,
 				2B4C22E81947785C0067D5AD /* ipad-start-building@2x.png */,
 				2B4C22E91947785C0067D5AD /* ipad-start-roof.png */,
@@ -430,7 +424,6 @@
 				2BA2402C19C8AE4C00F749F0 /* ipad-gameover-morten@2x.png in Resources */,
 				2BA2402719C8AE0500F749F0 /* ipad-gameover-background.png in Resources */,
 				2BA2402819C8AE0500F749F0 /* ipad-gameover-background@2x.png in Resources */,
-				2B4C22ED1947785C0067D5AD /* ipad-start-bg.png in Resources */,
 				2BA2403419C8AFAA00F749F0 /* ipad-gameover-text@2x.png in Resources */,
 				2B9874DB18CF8794004C6B6B /* readme.txt in Resources */,
 				2B9874DC18CF8794004C6B6B /* slkscr.ttf in Resources */,
@@ -459,7 +452,6 @@
 				2B4C22EB1947785C0067D5AD /* ipad-background.png in Resources */,
 				2B4C22F11947785C0067D5AD /* ipad-start-roof.png in Resources */,
 				2B4C22EC1947785C0067D5AD /* ipad-background@2x.png in Resources */,
-				2B4C22EE1947785C0067D5AD /* ipad-start-bg@2x.jpg in Resources */,
 				2B9873AD18CB6A51004C6B6B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
