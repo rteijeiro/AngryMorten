@@ -19,7 +19,7 @@
     self.position = CGPointMake(xPosition, [self scalarRandomRange:screenSize.height - screenSize.height / 3 max:screenSize.height - self.size.height / 2]);
   }
   
-  [self moveVehicle:10.0f screenSize:screenSize];
+  [self moveVehicle:5.0f screenSize:screenSize];
   
   return self;
 }
