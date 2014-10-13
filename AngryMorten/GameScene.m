@@ -17,6 +17,7 @@
 #import "Woman.h"
 
 // Define game constants.
+#define GAME_TIME 60
 #define SPAWN_TIME 4
 #define ENEMY_CAR 0
 #define ENEMY_BIKE 1
@@ -84,7 +85,7 @@
   [self addChild:_aim];
   
   // Create label for timer and init time variable.
-  _time = 120;
+  _time = GAME_TIME;
   _timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
   _timeLabel.name = @"Time";
   _timeLabel.fontSize = 30.0f;
