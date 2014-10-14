@@ -22,9 +22,28 @@ You have 60 seconds from the beginning and you have to get the more points possi
 
 You get different score points depending of the people you hit spitting:
 
-* CEO: ![CEO](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-car.png)
-* Project Manager: ![Project Manager](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-man1.png)
-* Designer: ![Designer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-skater.png)
-* Front-end Developer: ![Front-end Developer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-woman1.png)
-* Back-end Developer: ![Back-end Developer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-bike.png)
+![CEO](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-car.png)
+###### CEO: 50 Points
 
+![Project Manager](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-man1.png)
+###### Project Manager: 5-10 Points
+
+![Designer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-skater.png)
+###### Designer: 50 Points
+
+![Front-end Developer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-woman1.png)
+###### Front-end Developer: 5-10 Points
+
+![Back-end Developer](https://github.com/rteijeiro/AngryMorten/blob/master/AngryMorten/Resources/iPad.atlas/ipad-bike.png)
+###### Back-end Developer: 50 Points.
+
+### Credits
+I want to thank Mørten for being such a good guy helping people to contribute to the Drupal project. This is my way of saying "Thank you, buddie".
+
+Also want to thank my friend [Mickael Ekk](https://github.com/mickeek) for helping me with the game start scene. Much appreciated.
+
+Part of the game development was made during #NSCodeNight at [Thoughtbot](http://thoughtbot.com) offices in Stockholm. I want to thank Reda Lemeden for giving me good suggestions.
+
+The music in the game has been downloaded from [TeknoAxe](http://teknoaxe.com). Thanks guys for your contribution!
+
+Some sound effects had been downloaded from [FreeSound](http://www.freesound.org). Thank you too!
