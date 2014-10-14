@@ -76,7 +76,7 @@
   SKNode *node = [self nodeAtPoint:location];
   
   if ([node.name isEqualToString:@"Restart"]) {
-    // Start button.
+    // Load start scene.
     GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
     [self.view presentScene:gameScene transition:reveal];
