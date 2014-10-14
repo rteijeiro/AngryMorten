@@ -44,6 +44,8 @@ Also want to thank my friend [Mickael Ekk](https://github.com/mickeek) for helpi
 
 Part of the game development was made during #NSCodeNight at [Thoughtbot](http://thoughtbot.com) offices in Stockholm. I want to thank Reda Lemeden for giving me good suggestions.
 
+Game graphics have been designed by Thalal Gasea from [Cooperative Studio](http://www.cooperativestudio.com). Thanks dude!
+
 The music in the game has been downloaded from [TeknoAxe](http://teknoaxe.com). Thanks guys for your contribution!
 
-Some sound effects had been downloaded from [FreeSound](http://www.freesound.org). Thank you too!
+Some sound effects has been downloaded from [FreeSound](http://www.freesound.org). Thank you too!
