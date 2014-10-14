@@ -120,7 +120,6 @@
     // Start button.
     GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
-    // 3
     [self.view presentScene:gameScene transition:reveal];
   }
 }

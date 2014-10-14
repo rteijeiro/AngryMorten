@@ -7,6 +7,7 @@
 //
 
 #import "GameOverScene.h"
+#import "GameScene.h"
 
 @implementation GameOverScene
 
@@ -39,7 +40,6 @@
   [self addChild:text];
   [self addChild:morten];
   
-  // Show score label.
   // Create label for score and init score variable.
   SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
   scoreLabel.name = @"Score";
@@ -50,7 +50,31 @@
   scoreLabel.zPosition = 100.0f;
   
   [self addChild:scoreLabel];
+  
+  // Create label for restart button.
+  SKLabelNode *restartLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  restartLabel.name = @"Restart";
+  restartLabel.fontSize = 60.0f;
+  restartLabel.fontColor = [SKColor whiteColor];
+  restartLabel.text = @"Restart";
+  restartLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) / 3);
+  restartLabel.zPosition = 100.0f;
+  
+  [self addChild:restartLabel];
+}
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  // Verify the user touched the restart label.
+  UITouch *touch = [touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if ([node.name isEqualToString:@"Restart"]) {
+    // Start button.
+    GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
+    SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
+    [self.view presentScene:gameScene transition:reveal];
+  }
 }
 
 -(void)playGameOverSound {
