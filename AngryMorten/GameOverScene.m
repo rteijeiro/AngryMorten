@@ -57,8 +57,14 @@
   restartLabel.fontSize = 60.0f;
   restartLabel.fontColor = [SKColor whiteColor];
   restartLabel.text = @"Restart";
-  restartLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) / 3);
+  restartLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) / 2 - restartLabel.frame.size.height);
   restartLabel.zPosition = 100.0f;
+  
+  // Animate restart label button.
+  SKAction *increaseRestartLabelSize = [SKAction scaleBy:1.5 duration:0.2];
+  SKAction *decreaseRestartLabelSize = [increaseRestartLabelSize reversedAction];
+  SKAction *sequence = [SKAction sequence:@[increaseRestartLabelSize, decreaseRestartLabelSize]];
+  [restartLabel runAction:[SKAction repeatActionForever:sequence]];
   
   [self addChild:restartLabel];
 }
