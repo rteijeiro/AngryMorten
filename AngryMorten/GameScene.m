@@ -36,7 +36,7 @@
   
   SKLabelNode *_aim;
   
-  SKLabelNode *_timeLabel;
+  SKLabelNode *_timerLabel;
   int _time;
   
   SKLabelNode *_scoreLabel;
@@ -74,6 +74,19 @@
 
 -(void)loadGUI {
   // Create Aim for targetting spits.
+  [self createAim];
+  
+  // Create label for time and timer.
+  [self createTimerLabels];
+  
+  // Create label for score and init score variable.
+  [self createScoreLabels];
+  
+  // Add door image.
+  [self addDoor];
+}
+
+-(void)createAim {
   _aim = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
   _aim.name = @"Aim";
   _aim.fontSize = 100.0f;
@@ -83,33 +96,6 @@
   _aim.zPosition = 100.0f;
   
   [self addChild:_aim];
-  
-  // Create label for timer and init time variable.
-  _time = GAME_TIME;
-  _timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
-  _timeLabel.name = @"Time";
-  _timeLabel.fontSize = 30.0f;
-  _timeLabel.fontColor = [SKColor whiteColor];
-  _timeLabel.text = [NSString stringWithFormat:@"Time: %d", _time];
-  _timeLabel.position = CGPointMake(_timeLabel.frame.size.width / 1.5, self.size.height - _timeLabel.frame.size.height * 2);
-  _timeLabel.zPosition = 100.0f;
-  
-  [self addChild:_timeLabel];
-  
-  // Create label for score and init score variable.
-  _score = 0;
-  _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
-  _scoreLabel.name = @"Score";
-  _scoreLabel.fontSize = 30.0f;
-  _scoreLabel.fontColor = [SKColor whiteColor];
-  _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
-  _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width / 1.3, self.size.height - _scoreLabel.frame.size.height * 2);
-  _scoreLabel.zPosition = 100.0f;
-  
-  [self addChild:_scoreLabel];
-  
-  // Add door image.
-  [self addDoor];
 }
 
 -(void)moveAim {
@@ -124,6 +110,38 @@
 -(void)stopAim {
   [_aim removeActionForKey:@"aimAnimation"];
 }
+
+-(void)createTimerLabels {
+  
+  // Timer label.
+  _time = GAME_TIME;
+  _timerLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _timerLabel.name = @"Time";
+  _timerLabel.fontSize = 60.0f;
+  _timerLabel.fontColor = [SKColor whiteColor];
+  _timerLabel.text = [NSString stringWithFormat:@"Time: %d", _time];
+  _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 1.5, self.size.height - _timerLabel.frame.size.height * 2);
+  _timerLabel.zPosition = 100.0f;
+  
+  [self addChild:_timerLabel];
+}
+
+-(void)createScoreLabels {
+  _score = 0;
+  _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  _scoreLabel.name = @"Score";
+  _scoreLabel.fontSize = 60.0f;
+  _scoreLabel.fontColor = [SKColor whiteColor];
+  _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
+  _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width / 1.3, self.size.height - _scoreLabel.frame.size.height * 2);
+  _scoreLabel.zPosition = 100.0f;
+  
+  [self addChild:_scoreLabel];
+}
+
+// ***************************
+// Touch and Movement methods.
+// ***************************
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   // Verify that user touched the player and move it.
@@ -196,7 +214,7 @@
     
     // Update timer variable and label.
     _time -= 1;
-    _timeLabel.text = [NSString stringWithFormat:@"Time: %d", _time - 1];
+    _timerLabel.text = [NSString stringWithFormat:@"Time: %d", _time - 1];
     
     // Check if time is over.
     [self checkTimeOver];
