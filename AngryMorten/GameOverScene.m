@@ -80,6 +80,9 @@
     GameScene *gameScene = [[GameScene alloc] initWithSize:self.size];
     SKTransition *reveal = [SKTransition flipHorizontalWithDuration:0.5];
     [self.view presentScene:gameScene transition:reveal];
+    
+    // Remove actual scene.
+    [self removeFromParent];
   }
 }
 

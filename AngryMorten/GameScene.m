@@ -113,15 +113,27 @@
 
 -(void)createTimerLabels {
   
+  // Time label.
+  SKLabelNode *timeLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  timeLabel.fontSize = 30.0f;
+  timeLabel.fontColor = [SKColor whiteColor];
+  timeLabel.text = @"Time";
+  timeLabel.position = CGPointMake(timeLabel.frame.size.width * 2.15f, self.size.height - timeLabel.frame.size.height);
+  timeLabel.zPosition = 100.0f;
+  timeLabel.alpha = 0.5f;
+  
+  [self addChild:timeLabel];
+  
   // Timer label.
   _time = GAME_TIME;
   _timerLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
   _timerLabel.name = @"Time";
   _timerLabel.fontSize = 60.0f;
   _timerLabel.fontColor = [SKColor whiteColor];
-  _timerLabel.text = [NSString stringWithFormat:@"Time: %d", _time];
-  _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 1.5, self.size.height - _timerLabel.frame.size.height * 2);
+  _timerLabel.text = [NSString stringWithFormat:@"%d", _time];
+  _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 0.5, self.size.height - _timerLabel.frame.size.height * 2.5);
   _timerLabel.zPosition = 100.0f;
+  _timerLabel.alpha = 0.5f;
   
   [self addChild:_timerLabel];
 }
@@ -212,12 +224,8 @@
   // Update timer every second.
   if (_gameTime > 1.0) {
     
-    // Update timer variable and label.
-    _time -= 1;
-    _timerLabel.text = [NSString stringWithFormat:@"Time: %d", _time - 1];
-    
-    // Check if time is over.
-    [self checkTimeOver];
+    // Update timer and check if time is over.
+    [self updateTimer];
     
     _gameTime = 0.0f;
   }
@@ -231,9 +239,29 @@
   [self checkDoor];
 }
 
--(void)checkTimeOver {
+-(void)updateTimer {
+  // Update timer variable and label.
+  _time -= 1;
+  _timerLabel.text = [NSString stringWithFormat:@"%d", _time];
+
   if (_time == 0) {
     [self gameOver];
+  }
+  else if (_time <= 10) {
+    if (_timerLabel.alpha != 1.0f) {
+      _timerLabel.fontColor = [SKColor redColor];
+      _timerLabel.alpha = 1.0f;
+      
+      // Animate timer.
+      SKAction *increaseLabelSize = [SKAction scaleBy:2.0 duration:0.2];
+      SKAction *decreaseLabelSize = [increaseLabelSize reversedAction];
+      SKAction *sequence = [SKAction sequence:@[increaseLabelSize, decreaseLabelSize]];
+      
+      [_timerLabel runAction:[SKAction repeatActionForever:sequence]];
+    }
+  }
+  else {
+    _timerLabel.fontColor = [SKColor whiteColor];
   }
 }
 
@@ -241,8 +269,12 @@
   // Stop backgound music.
   [_backgroundMusicPlayer stop];
   
+  // Load Game Over scene.
   GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size score:_score];
   [self.view presentScene:gameOverScene transition:[SKTransition fadeWithDuration:2.0]];
+  
+  // Remove actual scene.
+  [self removeFromParent];
 }
 
 // ***********************
