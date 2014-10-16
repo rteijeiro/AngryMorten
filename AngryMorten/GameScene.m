@@ -131,7 +131,7 @@
   _timerLabel.fontSize = 60.0f;
   _timerLabel.fontColor = [SKColor whiteColor];
   _timerLabel.text = [NSString stringWithFormat:@"%d", _time];
-  _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 0.5, self.size.height - _timerLabel.frame.size.height * 2.5);
+  _timerLabel.position = CGPointMake(_timerLabel.frame.size.width / 0.5, self.size.height - _timerLabel.frame.size.height * 2);
   _timerLabel.zPosition = 100.0f;
   _timerLabel.alpha = 0.5f;
   
@@ -139,14 +139,28 @@
 }
 
 -(void)createScoreLabels {
+  
+  // Score text label.
+  SKLabelNode *scoreText = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
+  scoreText.fontSize = 30.0f;
+  scoreText.fontColor = [SKColor whiteColor];
+  scoreText.text = @"Score";
+  scoreText.position = CGPointMake(self.size.width - scoreText.frame.size.width * 1.5, self.size.height - scoreText.frame.size.height);
+  scoreText.zPosition = 100.0f;
+  scoreText.alpha = 0.5f;
+  
+  [self addChild:scoreText];
+  
+  // Score label.
   _score = 0;
   _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Silkscreen"];
   _scoreLabel.name = @"Score";
   _scoreLabel.fontSize = 60.0f;
   _scoreLabel.fontColor = [SKColor whiteColor];
-  _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
-  _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width / 1.3, self.size.height - _scoreLabel.frame.size.height * 2);
+  _scoreLabel.text = [NSString stringWithFormat:@"%d", _score];
+  _scoreLabel.position = CGPointMake(self.size.width - _scoreLabel.frame.size.width * 4, self.size.height - _scoreLabel.frame.size.height * 2);
   _scoreLabel.zPosition = 100.0f;
+  _scoreLabel.alpha = 0.5f;
   
   [self addChild:_scoreLabel];
 }
@@ -377,7 +391,14 @@
       // Create hit score label.
       [self scoreLabel:hitScore frame:e.frame];
       
-      _scoreLabel.text = [NSString stringWithFormat:@"Score: %d", _score];
+      // Update score label and animate it.
+      _scoreLabel.text = [NSString stringWithFormat:@"%d", _score];
+      
+      SKAction *increaseLabelSize = [SKAction group:@[[SKAction fadeAlphaBy:1.0 duration:0.2], [SKAction scaleBy:1.5 duration:0.2]]];
+      SKAction *decreaseLabelSize = [increaseLabelSize reversedAction];
+      SKAction *sequence = [SKAction sequence:@[increaseLabelSize, decreaseLabelSize]];
+      
+      [_scoreLabel runAction:sequence];
     }
   }];
 }
