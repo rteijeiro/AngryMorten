@@ -20,6 +20,7 @@
 @property (strong, nonatomic)  AVAudioPlayer *wehSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *girlShoutSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *huhhSoundPlayer;
+@property (strong, nonatomic)  AVAudioPlayer *bikeHornSoundPlayer;
 
 -(id)initWithSize:(CGSize)size;
 

@@ -383,6 +383,7 @@
       else if ([enemy.name isEqualToString:@"bike"]) {
         hitScore = 30;
         _score += hitScore;
+        [self playBikeHornSound];
       }
       else if ([enemy.name isEqualToString:@"skater"]) {
         hitScore = 30;
@@ -620,6 +621,15 @@
   _huhhSoundPlayer.numberOfLoops = 0;
   [_huhhSoundPlayer prepareToPlay];
   [_huhhSoundPlayer play];
+}
+
+-(void)playBikeHornSound {
+  NSError *error;
+  NSURL *bikeHornSoundURL = [[NSBundle mainBundle] URLForResource:@"bike-horn" withExtension:@"mp3"];
+  _bikeHornSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:bikeHornSoundURL error:&error];
+  _bikeHornSoundPlayer.numberOfLoops = 0;
+  [_bikeHornSoundPlayer prepareToPlay];
+  [_bikeHornSoundPlayer play];
 }
 
 @end

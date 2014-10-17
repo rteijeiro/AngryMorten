@@ -19,11 +19,11 @@
 		2B65312B19EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312819EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 */; };
 		2B65312C19EC15B700CB0118 /* Simple_Metal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312919EC15B700CB0118 /* Simple_Metal.mp3 */; };
 		2B65312D19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312A19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 */; };
-		2B65313119F19EA600CB0118 /* buagh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312E19F19EA600CB0118 /* buagh.mp3 */; };
 		2B65313219F19EA600CB0118 /* claxon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65312F19F19EA600CB0118 /* claxon.mp3 */; };
 		2B65313319F19EA600CB0118 /* girl-shout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65313019F19EA600CB0118 /* girl-shout.mp3 */; };
 		2B65313619F1A4BD00CB0118 /* huhh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65313419F1A4BD00CB0118 /* huhh.mp3 */; };
 		2B65313719F1A4BD00CB0118 /* weh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65313519F1A4BD00CB0118 /* weh.mp3 */; };
+		2B65313919F1A7AA00CB0118 /* bike-horn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B65313819F1A7AA00CB0118 /* bike-horn.mp3 */; };
 		2B906C091922A7CC004FAEB4 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B906C081922A7CC004FAEB4 /* Car.m */; };
 		2B9873A118CB6A51004C6B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A018CB6A51004C6B6B /* Foundation.framework */; };
 		2B9873A318CB6A51004C6B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9873A218CB6A51004C6B6B /* CoreGraphics.framework */; };
@@ -95,11 +95,11 @@
 		2B65312819EC15B700CB0118 /* Ive_Got_a_Bazooka_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ive_Got_a_Bazooka_Man.mp3; sourceTree = "<group>"; };
 		2B65312919EC15B700CB0118 /* Simple_Metal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Simple_Metal.mp3; sourceTree = "<group>"; };
 		2B65312A19EC15B700CB0118 /* Six_by_Eight_Thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Six_by_Eight_Thunder.mp3; sourceTree = "<group>"; };
-		2B65312E19F19EA600CB0118 /* buagh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buagh.mp3; sourceTree = "<group>"; };
 		2B65312F19F19EA600CB0118 /* claxon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = claxon.mp3; sourceTree = "<group>"; };
 		2B65313019F19EA600CB0118 /* girl-shout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "girl-shout.mp3"; sourceTree = "<group>"; };
 		2B65313419F1A4BD00CB0118 /* huhh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = huhh.mp3; sourceTree = "<group>"; };
 		2B65313519F1A4BD00CB0118 /* weh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = weh.mp3; sourceTree = "<group>"; };
+		2B65313819F1A7AA00CB0118 /* bike-horn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bike-horn.mp3"; sourceTree = "<group>"; };
 		2B906C071922A7CC004FAEB4 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		2B906C081922A7CC004FAEB4 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		2B98739D18CB6A51004C6B6B /* AngryMorten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AngryMorten.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,12 +341,12 @@
 		2BBFD78619D0AFB200A37F24 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				2B65313819F1A7AA00CB0118 /* bike-horn.mp3 */,
 				2B65313419F1A4BD00CB0118 /* huhh.mp3 */,
 				2B65313519F1A4BD00CB0118 /* weh.mp3 */,
 				2BBFD78D19D0B89B00A37F24 /* hit.mp3 */,
 				2BBFD78919D0B5CF00A37F24 /* loogie.mp3 */,
 				2BBFD78A19D0B5CF00A37F24 /* spit.mp3 */,
-				2B65312E19F19EA600CB0118 /* buagh.mp3 */,
 				2B65312F19F19EA600CB0118 /* claxon.mp3 */,
 				2B65313019F19EA600CB0118 /* girl-shout.mp3 */,
 				2BBFD78F19D0BB5100A37F24 /* gameover.mp3 */,
@@ -434,12 +434,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B65313919F1A7AA00CB0118 /* bike-horn.mp3 in Resources */,
 				2BBFD78519D0AEC300A37F24 /* Soundscape_of_a_Madman_Instrumental.mp3 in Resources */,
 				2B4C22EF1947785C0067D5AD /* ipad-start-building.png in Resources */,
 				2BA2402C19C8AE4C00F749F0 /* ipad-gameover-morten@2x.png in Resources */,
 				2BA2402719C8AE0500F749F0 /* ipad-gameover-background.png in Resources */,
 				2BA2402819C8AE0500F749F0 /* ipad-gameover-background@2x.png in Resources */,
-				2B65313119F19EA600CB0118 /* buagh.mp3 in Resources */,
 				2BA2403419C8AFAA00F749F0 /* ipad-gameover-text@2x.png in Resources */,
 				2B9874DB18CF8794004C6B6B /* readme.txt in Resources */,
 				2B9874DC18CF8794004C6B6B /* slkscr.ttf in Resources */,
