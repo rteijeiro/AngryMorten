@@ -18,6 +18,7 @@
 @property (strong, nonatomic)  AVAudioPlayer *hitSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *claxonSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *buaghSoundPlayer;
+@property (strong, nonatomic)  AVAudioPlayer *girlShoutSoundPlayer;
 
 -(id)initWithSize:(CGSize)size;
 

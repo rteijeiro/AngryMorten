@@ -401,10 +401,12 @@
       else if ([enemy.name isEqualToString:@"woman"]) {
         hitScore = 5;
         _score += hitScore;
+        [self playGirlShoutSound];
       }
       else if ([enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
         hitScore = 10;
         _score += hitScore;
+        [self playGirlShoutSound];
       }
       
       // Create hit score label.
@@ -599,6 +601,15 @@
   _buaghSoundPlayer.numberOfLoops = 0;
   [_buaghSoundPlayer prepareToPlay];
   [_buaghSoundPlayer play];
+}
+
+-(void)playGirlShoutSound {
+  NSError *error;
+  NSURL *girlShoutSoundURL = [[NSBundle mainBundle] URLForResource:@"girl-shout" withExtension:@"mp3"];
+  _girlShoutSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:girlShoutSoundURL error:&error];
+  _girlShoutSoundPlayer.numberOfLoops = 0;
+  [_girlShoutSoundPlayer prepareToPlay];
+  [_girlShoutSoundPlayer play];
 }
 
 @end
