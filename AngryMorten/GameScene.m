@@ -387,6 +387,7 @@
       else if ([enemy.name isEqualToString:@"skater"]) {
         hitScore = 30;
         _score += hitScore;
+        [self playHuhhSound];
       }
       else if ([enemy.name isEqualToString:@"man"]) {
         hitScore = 5;
@@ -610,6 +611,15 @@
   _girlShoutSoundPlayer.numberOfLoops = 0;
   [_girlShoutSoundPlayer prepareToPlay];
   [_girlShoutSoundPlayer play];
+}
+
+-(void)playHuhhSound {
+  NSError *error;
+  NSURL *huhhSoundURL = [[NSBundle mainBundle] URLForResource:@"huhh" withExtension:@"mp3"];
+  _huhhSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:huhhSoundURL error:&error];
+  _huhhSoundPlayer.numberOfLoops = 0;
+  [_huhhSoundPlayer prepareToPlay];
+  [_huhhSoundPlayer play];
 }
 
 @end
