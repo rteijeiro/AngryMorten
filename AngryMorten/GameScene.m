@@ -375,8 +375,17 @@
       // Update score.
       int hitScore = 0;
       
-      if ([enemy.name isEqualToString:@"car"] || [enemy.name isEqualToString:@"bike"] || [enemy.name isEqualToString:@"skater"]) {
+      if ([enemy.name isEqualToString:@"car"]) {
         hitScore = 50;
+        _score += hitScore;
+        [self playClaxonSound];
+      }
+      else if ([enemy.name isEqualToString:@"bike"]) {
+        hitScore = 30;
+        _score += hitScore;
+      }
+      else if ([enemy.name isEqualToString:@"skater"]) {
+        hitScore = 30;
         _score += hitScore;
       }
       else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"] || [enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
@@ -562,6 +571,15 @@
   _hitSoundPlayer.numberOfLoops = 0;
   [_hitSoundPlayer prepareToPlay];
   [_hitSoundPlayer play];
+}
+
+-(void)playClaxonSound {
+  NSError *error;
+  NSURL *claxonSoundURL = [[NSBundle mainBundle] URLForResource:@"claxon" withExtension:@"mp3"];
+  _claxonSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:claxonSoundURL error:&error];
+  _claxonSoundPlayer.numberOfLoops = 0;
+  [_claxonSoundPlayer prepareToPlay];
+  [_claxonSoundPlayer play];
 }
 
 @end

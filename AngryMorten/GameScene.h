@@ -16,6 +16,7 @@
 @property (strong, nonatomic)  AVAudioPlayer *loogieSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *spitSoundPlayer;
 @property (strong, nonatomic)  AVAudioPlayer *hitSoundPlayer;
+@property (strong, nonatomic)  AVAudioPlayer *claxonSoundPlayer;
 
 -(id)initWithSize:(CGSize)size;
 
