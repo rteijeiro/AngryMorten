@@ -388,12 +388,22 @@
         hitScore = 30;
         _score += hitScore;
       }
-      else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"] || [enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
+      else if ([enemy.name isEqualToString:@"man"]) {
+        hitScore = 5;
+        _score += hitScore;
+        [self playBuaghSound];
+      }
+      else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"]) {
         hitScore = 10;
         _score += hitScore;
+        [self playBuaghSound];
       }
-      else if ([enemy.name isEqualToString:@"man"] || [enemy.name isEqualToString:@"woman"]) {
+      else if ([enemy.name isEqualToString:@"woman"]) {
         hitScore = 5;
+        _score += hitScore;
+      }
+      else if ([enemy.name isEqualToString:@"woman-up"] || [enemy.name isEqualToString:@"woman-down"]) {
+        hitScore = 10;
         _score += hitScore;
       }
       
@@ -580,6 +590,15 @@
   _claxonSoundPlayer.numberOfLoops = 0;
   [_claxonSoundPlayer prepareToPlay];
   [_claxonSoundPlayer play];
+}
+
+-(void)playBuaghSound {
+  NSError *error;
+  NSURL *buaghSoundURL = [[NSBundle mainBundle] URLForResource:@"buagh" withExtension:@"mp3"];
+  _buaghSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:buaghSoundURL error:&error];
+  _buaghSoundPlayer.numberOfLoops = 0;
+  [_buaghSoundPlayer prepareToPlay];
+  [_buaghSoundPlayer play];
 }
 
 @end
