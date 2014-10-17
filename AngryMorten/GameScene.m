@@ -391,12 +391,12 @@
       else if ([enemy.name isEqualToString:@"man"]) {
         hitScore = 5;
         _score += hitScore;
-        [self playBuaghSound];
+        [self playWehSound];
       }
       else if ([enemy.name isEqualToString:@"man-up"] || [enemy.name isEqualToString:@"man-down"]) {
         hitScore = 10;
         _score += hitScore;
-        [self playBuaghSound];
+        [self playWehSound];
       }
       else if ([enemy.name isEqualToString:@"woman"]) {
         hitScore = 5;
@@ -594,13 +594,13 @@
   [_claxonSoundPlayer play];
 }
 
--(void)playBuaghSound {
+-(void)playWehSound {
   NSError *error;
-  NSURL *buaghSoundURL = [[NSBundle mainBundle] URLForResource:@"buagh" withExtension:@"mp3"];
-  _buaghSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:buaghSoundURL error:&error];
-  _buaghSoundPlayer.numberOfLoops = 0;
-  [_buaghSoundPlayer prepareToPlay];
-  [_buaghSoundPlayer play];
+  NSURL *wehSoundURL = [[NSBundle mainBundle] URLForResource:@"weh" withExtension:@"mp3"];
+  _wehSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wehSoundURL error:&error];
+  _wehSoundPlayer.numberOfLoops = 0;
+  [_wehSoundPlayer prepareToPlay];
+  [_wehSoundPlayer play];
 }
 
 -(void)playGirlShoutSound {
