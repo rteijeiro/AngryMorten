@@ -16,7 +16,7 @@ Fell free to clone the repo, try the game and send me some feedback. I'll try to
 One day, Mørten woke up swearing about Drupal front-end issues (as usual) but that was not enough. He was really angry so he went up to his office roof and started to spit to every people around the street while listening to metal music.
 
 ### How to Play
-The game is easy to play, just press Mørten to make him spit. The more you keep him pressed, the longer the spit goes. You can also move Mørten while keeping him pressed. Release him when you want him to spit.
+The game is easy to play, just press [Mørten](http://morten.dk) to make him spit. The more you keep him pressed, the longer the spit goes. You can also move Mørten while keeping him pressed. Release him when you want him to spit.
 
 You have 60 seconds from the beginning and you have to get the more points possible in this time.
 
